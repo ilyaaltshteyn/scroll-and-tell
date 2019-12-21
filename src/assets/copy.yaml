@@ -1,0 +1,60 @@
+part1:
+  step1:
+    "For this lesson, we’ll use this dataset of property sales. It has one row per
+    property sold, and columns with some information about each property."
+  step1a:
+    "Take a moment to explore the dataset."
+  step2:
+    "A common task in machine learning is to train a computer to distinguish
+    between different groups, or classes."
+  step2a:
+    "In our dataset, each row is either a house, or an apartment. These 2 groups
+    will be our classes."
+  step3:
+    "This data comes from a popular real estate listings website. Sometimes, the
+    website’s users don’t fill out the 'property type' field, so there are some
+    rows that have a missing value in that column."
+  step4:
+    "How could we train a computer to predict whether a new row is a house or an
+    apartment?"
+  step4a:
+    "The task above is asking us to train a computer to determine the class of a
+    new row. This kind of task is called a classification task. We will solve it
+    by using a classification algorithm."
+
+part2:
+  step1:
+    "But first, let’s take a step back and graph this data. We’ll create a
+    scatterplot, with a horizontal axis representing the property size, and a
+    vertical axis representing the property price."
+  step1a:
+    "Red dots will be houses, and blue ones will be apartments."
+  step2:
+    "Now let’s add a few more datapoints from the same dataset, to make this
+    more interesting."
+  step3:
+    "What a beautiful scatterplot! Now that we have the data plotted, let’s
+    introduce the K-Nearest Neighbors algorithm to solve our classification task."
+  step4:
+    "Let’s say we have this new datapoint— a property that sold for $XXX
+    thousand, and has 720 square feet of space."
+  step4a:
+    "The K-Nearest Neighbors algorithm will look at the nearest neighbors of
+    this new datapoint, and will tally up how many of them are houses, and how
+    many are apartments."
+  step5:
+    "How many neighbors will KNN look at?"
+  step5a:
+    "That’s what K stands for! It’s the number of nearest neighbors to tally up!
+    Let’s say that K is 5 for now."
+  step6:
+    "How does KNN know which datapoints are the nearest neighbors?"
+  step6a:
+    "It calculates the distance from the new datapoint, (at location $XXX k, 5)
+    to every other datapoint on the grid. Then it chooses the top 5."
+  step7:
+    "Then it will take the majority vote of those 5 datapoints, and that is the
+    algorithm’s guess about what the mysterious new datapoint is."
+  step7a:
+    "In this case, 4/5 of the nearest neighbors are apartments— so our best
+    guess is that this new datapoint is an apartment."

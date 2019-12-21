@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>dot-run: Lesson 1</title>
+	<meta name="description" content="Scrollama: Sticky Side Example">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel='stylesheet' href='css/style.css'>
+	<link rel='stylesheet' href='css/main.css'>
+
+</head>
+
+<body>
+	<main>
+		<div class="header">
+		  <div id="header-logo">
+		    <h2>dot-run</h2>
+		  </div>
+		</div>
+
+		<div class="intro">
+		  <h3 class="intro" id="lesson-num">Lesson 1</h3>
+		  <h1 class="intro" id="lesson-name">The K-Nearest Neighbors Algorithm</h1>
+		  <h2>~ In this lesson:</h2>
+		  <ul>
+		    <li><p>Classification problems and algorithms</p></li>
+		    <li><p>The K-Nearest Neighbors (KNN) classification algorithm</p></li>
+		    <li><p>Tuning models by adjusting hyperparameters</p></li>
+		    <li><p>Accuracy as a measure of model performance</p></li>
+		  </ul>
+		  </p>
+		</div>
+
+		<section class="scroll__section" id='scrolly1'>
+			<div class="scroll__graphic">
+				<article>
+					<div class='step' data-step='1'>
+						<p>For this lesson, we’ll use this dataset of property sales. It has one row per property sold, and columns with some information about each property.</p>
+						<p>Take a moment to explore the dataset.</p>
+					</div>
+					<div class='step' data-step='2'>
+						<p>A common task in machine learning is to train a computer to distinguish between different groups, or classes.</p>
+						<p>In our dataset, each row is either a house, or an apartment. These 2 groups will be our classes.</p>
+					</div>
+					<div class='step' data-step='3'>
+						<p>This data comes from a popular real estate listings website. Sometimes, the website’s users don’t fill out the &#39;property type&#39; field, so there are some rows that have a missing value in that column.</p>
+					</div>
+					<div class='step' data-step='4'>
+						<p>How could we train a computer to predict whether a new row is a house or an apartment?</p>
+						<p>The task above is asking us to train a computer to determine the class of a new row. This kind of task is called a classification task. We will solve it by using a classification algorithm.</p>
+					</div>
+				</article>
+			</div>
+
+			<figure>
+				<p>Nothing yet...</p>
+			</figure>
+		</section>
+
+		<section class="scroll__section" id='scrolly2'>
+			<div class="scroll__graphic">
+				<article>
+					<div class='step' data-step='5'>
+						<p>But first, let’s take a step back and graph this data. We’ll create a scatterplot, with a horizontal axis representing the property size, and a vertical axis representing the property price.</p>
+						<p>Red dots will be houses, and blue ones will be apartments.</p>
+					</div>
+					<div class='step' data-step='5'>
+						<p>Now let’s add a few more datapoints from the same dataset, to make this more interesting.</p>
+					</div>
+					<div class='step' data-step='5'>
+						<p>What a beautiful scatterplot! Now that we have the data plotted, let’s introduce the K-Nearest Neighbors algorithm to solve our classification task.</p>
+					</div>
+					<div class='step' data-step='5'>
+						<p>Let’s say we have this new datapoint— a property that sold for $XXX thousand, and has 720 square feet of space.</p>
+						<p>The K-Nearest Neighbors algorithm will look at the nearest neighbors of this new datapoint, and will tally up how many of them are houses, and how many are apartments.</p>
+					</div>
+					<div class='step' data-step='5'>
+						<p>How many neighbors will KNN look at?</p>
+						<p>That’s what K stands for! It’s the number of nearest neighbors to tally up! Let’s say that K is 5 for now.</p>
+					</div>
+					<div class='step' data-step='5'>
+						<p>How does KNN know which datapoints are the nearest neighbors?</p>
+						<p>It calculates the distance from the new datapoint, (at location $XXX k, 5) to every other datapoint on the grid. Then it chooses the top 5.</p>
+					</div>
+					<div class='step' data-step='5'>
+						<p>Then it will take the majority vote of those 5 datapoints, and that is the algorithm’s guess about what the mysterious new datapoint is.</p>
+						<p>In this case, 4/5 of the nearest neighbors are apartments— so our best guess is that this new datapoint is an apartment.</p>
+					</div>
+				</article>
+			</div>
+				<figure>
+					<p>0</p>
+				</figure>
+
+		</section>
+
+		<section id='outro'></section>
+	</main>
+
+	<!-- <div class='debug'></div> -->
+	<script src='https://unpkg.com/d3@5.9.1/dist/d3.min.js'></script>
+	<script src='https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js'></script>
+	<script src='javascript/stickyfill.min.js'></script>
+	<script src='javascript/scrollama.min.js'></script>
+	<script src='javascript/scrolly.js'></script>
+</body>
+
+</html>
