@@ -1,3 +1,13 @@
+intro:
+  lesson_num: "Lesson 1"
+  lesson_title: "The K-Nearest Neighbors Algorithm"
+  preamble: "You'll learn how to:"
+  goals:
+    - "Identify classification problems"
+    - "Use the K-Nearest Neighbors (KNN) machine learning algorithm to solve
+    classification problems"
+    - "Tune models by adjusting hyperparameters"
+    - "Measure how well your model performed using its accuracy"
 part1:
   step1:
     "For this lesson, we’ll use this dataset of property sales. It has one row per
@@ -21,13 +31,13 @@ part1:
     "The task above is asking us to train a computer to determine the class of a
     new row. This kind of task is called a classification task. We will solve it
     by using a classification algorithm."
-
-part2:
-  step1:
+  step5:
     "But first, let’s take a step back and graph this data. We’ll create a
     scatterplot, with a horizontal axis representing the property size, and a
     vertical axis representing the property price."
-  step1a:
+
+part2:
+  step1:
     "Red dots will be houses, and blue ones will be apartments."
   step2:
     "Now let’s add a few more datapoints from the same dataset, to make this

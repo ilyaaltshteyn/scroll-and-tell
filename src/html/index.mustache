@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>dot-run: Lesson 1</title>
+	<title>dot-run: {{intro.lesson_num}}</title>
 	<meta name="description" content="Scrollama: Sticky Side Example">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel='stylesheet' href='css/style.css'>
@@ -21,15 +21,17 @@
 		</div>
 
 		<div class="intro">
-		  <h3 class="intro" id="lesson-num">Lesson 1</h3>
-		  <h1 class="intro" id="lesson-name">The K-Nearest Neighbors Algorithm</h1>
-		  <h2>~ In this lesson:</h2>
-		  <ul>
-		    <li><p>Classification problems and algorithms</p></li>
-		    <li><p>The K-Nearest Neighbors (KNN) classification algorithm</p></li>
-		    <li><p>Tuning models by adjusting hyperparameters</p></li>
-		    <li><p>Accuracy as a measure of model performance</p></li>
-		  </ul>
+		  <h3 class="intro" id="lesson-num">{{intro.lesson_num}}</h3>
+		  <h1 class="intro" id="lesson-name">{{intro.lesson_title}}</h1>
+		  <h2>{{intro.preamble}}</h2>
+			{{#intro}}
+		    <ul>
+	        {{#goals}}
+	            <li><p>{{.}}</p></li>
+	        {{/goals}}
+		    </ul>
+			{{/intro}}
+
 		  </p>
 		</div>
 
@@ -51,10 +53,13 @@
 						<p>{{part1.step4}}</p>
 						<p>{{part1.step4a}}</p>
 					</div>
+					<div class='step' data-step='5'>
+						<p>{{part1.step5}}</p>
+					</div>
 				</article>
 			</div>
 
-			<figure>
+			<figure id='figure1'>
 				<p>Nothing yet...</p>
 			</figure>
 		</section>
@@ -62,35 +67,34 @@
 		<section class="scroll__section" id='scrolly2'>
 			<div class="scroll__graphic">
 				<article>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='6'>
 						<p>{{part2.step1}}</p>
-						<p>{{part2.step1a}}</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='7'>
 						<p>{{part2.step2}}</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='8'>
 						<p>{{part2.step3}}</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='9'>
 						<p>{{part2.step4}}</p>
 						<p>{{part2.step4a}}</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='10'>
 						<p>{{part2.step5}}</p>
 						<p>{{part2.step5a}}</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='11'>
 						<p>{{part2.step6}}</p>
 						<p>{{part2.step6a}}</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='12'>
 						<p>{{part2.step7}}</p>
 						<p>{{part2.step7a}}</p>
 					</div>
 				</article>
 			</div>
-				<figure>
+				<figure id='figure2'>
 					<p>0</p>
 				</figure>
 
@@ -100,11 +104,14 @@
 	</main>
 
 	<!-- <div class='debug'></div> -->
-	<script src='https://unpkg.com/d3@5.9.1/dist/d3.min.js'></script>
+	<!-- <script src='https://d3js.org/d3.v3.min.js' charset="utf-8"></script> -->
+	<script src="https://d3js.org/d3.v4.js"></script>
 	<script src='https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js'></script>
 	<script src='javascript/stickyfill.min.js'></script>
 	<script src='javascript/scrollama.min.js'></script>
-	<script src='javascript/scrolly.js'></script>
+	<script src='javascript/fig1.js'></script>
+	<script src='javascript/main.js'></script>
+	<!-- <script src='javascript/fig2.js'></script> -->
 </body>
 
 </html>

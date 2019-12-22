@@ -33,6 +33,11 @@ function init(selector) {
   function handleStepEnter(response) {
     console.log(response)
     // response = { element, direction, index }
+
+    // add table row:
+    if (response['index'] == 3 && response['direction'] == "down") {
+      add_row_to_table();  // from fig1.js
+    }
     // add color to current step only
     step.classed('is-active', function (d, i) {
       return i === response.index;
@@ -43,17 +48,21 @@ function init(selector) {
   function handleStepExit(response) {
     console.log(response)
     // response = { element, direction, index }
+
+    // revert table to original
+    if (response['index'] == 3 && response['direction'] == "up") {
+      revert_to_original_table();  // from fig1.js
+    }
+
     // add color to current step only
-    step.classed('is-active', function (d, i) {
-      return false;
-    })
+    step.classed('is-active', false)
     // update graphic based on step
     update_text(selector, response);
   }
 
   scroller.setup({
     step: selector + ' article .step',
-    offset: 0.33,
+    offset: 0.5,
     debug: true,
   }).onStepEnter(handleStepEnter).onStepExit(handleStepExit)
   // setup resize event
@@ -64,3 +73,4 @@ function init(selector) {
 // kick things off
 init("#scrolly1");
 init("#scrolly2");
+make_original_table();

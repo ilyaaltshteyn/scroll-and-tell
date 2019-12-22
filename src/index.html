@@ -23,13 +23,14 @@
 		<div class="intro">
 		  <h3 class="intro" id="lesson-num">Lesson 1</h3>
 		  <h1 class="intro" id="lesson-name">The K-Nearest Neighbors Algorithm</h1>
-		  <h2>~ In this lesson:</h2>
-		  <ul>
-		    <li><p>Classification problems and algorithms</p></li>
-		    <li><p>The K-Nearest Neighbors (KNN) classification algorithm</p></li>
-		    <li><p>Tuning models by adjusting hyperparameters</p></li>
-		    <li><p>Accuracy as a measure of model performance</p></li>
-		  </ul>
+		  <h2>You&#39;ll learn how to:</h2>
+		    <ul>
+	            <li><p>Identify classification problems</p></li>
+	            <li><p>Use the K-Nearest Neighbors (KNN) machine learning algorithm to solve classification problems</p></li>
+	            <li><p>Tune models by adjusting hyperparameters</p></li>
+	            <li><p>Measure how well your model performed using its accuracy</p></li>
+		    </ul>
+
 		  </p>
 		</div>
 
@@ -51,10 +52,13 @@
 						<p>How could we train a computer to predict whether a new row is a house or an apartment?</p>
 						<p>The task above is asking us to train a computer to determine the class of a new row. This kind of task is called a classification task. We will solve it by using a classification algorithm.</p>
 					</div>
+					<div class='step' data-step='5'>
+						<p>But first, let’s take a step back and graph this data. We’ll create a scatterplot, with a horizontal axis representing the property size, and a vertical axis representing the property price.</p>
+					</div>
 				</article>
 			</div>
 
-			<figure>
+			<figure id='figure1'>
 				<p>Nothing yet...</p>
 			</figure>
 		</section>
@@ -62,35 +66,34 @@
 		<section class="scroll__section" id='scrolly2'>
 			<div class="scroll__graphic">
 				<article>
-					<div class='step' data-step='5'>
-						<p>But first, let’s take a step back and graph this data. We’ll create a scatterplot, with a horizontal axis representing the property size, and a vertical axis representing the property price.</p>
+					<div class='step' data-step='6'>
 						<p>Red dots will be houses, and blue ones will be apartments.</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='7'>
 						<p>Now let’s add a few more datapoints from the same dataset, to make this more interesting.</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='8'>
 						<p>What a beautiful scatterplot! Now that we have the data plotted, let’s introduce the K-Nearest Neighbors algorithm to solve our classification task.</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='9'>
 						<p>Let’s say we have this new datapoint— a property that sold for $XXX thousand, and has 720 square feet of space.</p>
 						<p>The K-Nearest Neighbors algorithm will look at the nearest neighbors of this new datapoint, and will tally up how many of them are houses, and how many are apartments.</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='10'>
 						<p>How many neighbors will KNN look at?</p>
 						<p>That’s what K stands for! It’s the number of nearest neighbors to tally up! Let’s say that K is 5 for now.</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='11'>
 						<p>How does KNN know which datapoints are the nearest neighbors?</p>
 						<p>It calculates the distance from the new datapoint, (at location $XXX k, 5) to every other datapoint on the grid. Then it chooses the top 5.</p>
 					</div>
-					<div class='step' data-step='5'>
+					<div class='step' data-step='12'>
 						<p>Then it will take the majority vote of those 5 datapoints, and that is the algorithm’s guess about what the mysterious new datapoint is.</p>
 						<p>In this case, 4/5 of the nearest neighbors are apartments— so our best guess is that this new datapoint is an apartment.</p>
 					</div>
 				</article>
 			</div>
-				<figure>
+				<figure id='figure2'>
 					<p>0</p>
 				</figure>
 
@@ -100,11 +103,14 @@
 	</main>
 
 	<!-- <div class='debug'></div> -->
-	<script src='https://unpkg.com/d3@5.9.1/dist/d3.min.js'></script>
+	<!-- <script src='https://d3js.org/d3.v3.min.js' charset="utf-8"></script> -->
+	<script src="https://d3js.org/d3.v4.js"></script>
 	<script src='https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js'></script>
 	<script src='javascript/stickyfill.min.js'></script>
 	<script src='javascript/scrollama.min.js'></script>
-	<script src='javascript/scrolly.js'></script>
+	<script src='javascript/fig1.js'></script>
+	<script src='javascript/main.js'></script>
+	<!-- <script src='javascript/fig2.js'></script> -->
 </body>
 
 </html>

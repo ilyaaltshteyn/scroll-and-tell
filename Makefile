@@ -8,3 +8,6 @@ deploy:
 	make build
 	aws s3 cp --recursive src/ s3://dot-run/ --acl public-read
 	"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" http://dot-run.s3-website-us-east-1.amazonaws.com/ -incognito
+
+git:
+	git add -A && git commit -m "automatic commit" && gp
