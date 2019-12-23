@@ -37,15 +37,29 @@ function init(selector) {
     if (selector == "#part1"){  // part1 only
       // add table row
       if (response['index'] == 3 && response['direction'] == "down") {
-        add_row_to_table();  // from fig1.js
+        fig1__add_row_to_table();  // from fig1.js
       }
     }
 
     if (selector == "#part2"){  // part2 only
-    // trigger scatterplot animation
+      // draw scatterplot animation
       if (response['index'] == 0 && response['direction'] == "down") {
-        create_first_scatterplot();  // from fig1.js
+        fig2__create_first_scatterplot();  // from fig2.js
       }
+      // add new blinking point
+      if (response['index'] == 3 && response['direction'] == "down") {
+        fig2__add_blinking_new_mystery_point();  // from fig2.jss
+      }
+      // draw lines from point to all other points
+      if (response['index'] == 5 && response['direction'] == "down") {
+        fig2__animate_distance_measurements();  // from fig2.jss
+      }
+      // highlight closest points and remove lines
+      if (response['index'] == 6 && response['direction'] == "down") {
+        fig2__circle_closest_points_and_remove_measurement_lines();  // from fig2.jss
+      }
+
+
     }
 
     // add color to current step only

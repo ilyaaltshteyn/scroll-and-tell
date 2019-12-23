@@ -31,7 +31,7 @@ function revert_to_original_table() {
     tabulate(data, colnames, newtable=false, killold=true);
 }
 
-function add_row_to_table() {
+function fig1__add_row_to_table() {
     // Add row to table
     // data = JSON.parse(JSON.stringify(initialData));
     // data.push({ price: '50', minnights: '5', type: '???' });
