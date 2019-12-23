@@ -78,11 +78,23 @@ function tabulate(
           })
           .enter()
           .append("td")
-          .html(function(d) { return d.value; });
+          .text(function(d) { return d.value; })
+          .style("opacity", 0);
+
+      if (newtable == false) {  // we're adding a new row to existing table!
+        // so... make it fade in
+        cells.transition().duration(1000)
+        .style("opacity", 1);
+      } else {  // we're creating the whole table from scratch, no need to fade
+        cells.style("opacity", 1);
+      }
 
     } else {  // remove extra rows from table
       var rows = tbody.selectAll("tr")
         .data(data);
-      rows.exit().remove();
+      rows.exit()
+      .transition().duration(1000)
+      .style("opacity", 0)
+      .remove();
     }
 }

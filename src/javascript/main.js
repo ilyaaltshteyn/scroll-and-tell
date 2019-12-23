@@ -24,9 +24,9 @@ function init(selector) {
 
   // scrollama event handlers
   function update_text(selector, response) {
-    if (selector === "#scrolly1") {
+    if (selector === "#part1") {
       figure.select('p').text("A table: STEP " + String(response.index));
-    } else if (selector === "#scrolly2") {
+    } else if (selector === "#part2") {
       figure.select('p').text("Data flying around a scatterplot: STEP " + String(response.index));
     }
   }
@@ -34,10 +34,20 @@ function init(selector) {
     console.log(response)
     // response = { element, direction, index }
 
-    // add table row:
-    if (response['index'] == 3 && response['direction'] == "down") {
-      add_row_to_table();  // from fig1.js
+    if (selector == "#part1"){  // part1 only
+      // add table row
+      if (response['index'] == 3 && response['direction'] == "down") {
+        add_row_to_table();  // from fig1.js
+      }
     }
+
+    if (selector == "#part2"){  // part2 only
+    // trigger scatterplot animation
+      if (response['index'] == 0 && response['direction'] == "down") {
+        create_first_scatterplot();  // from fig1.js
+      }
+    }
+
     // add color to current step only
     step.classed('is-active', function (d, i) {
       return i === response.index;
@@ -49,9 +59,11 @@ function init(selector) {
     console.log(response)
     // response = { element, direction, index }
 
-    // revert table to original
-    if (response['index'] == 3 && response['direction'] == "up") {
-      revert_to_original_table();  // from fig1.js
+    if (selector == "#part1"){  // part1 only
+      // revert table to original
+      if (response['index'] == 3 && response['direction'] == "up") {
+        revert_to_original_table();  // from fig1.js
+      }
     }
 
     // add color to current step only
@@ -71,6 +83,6 @@ function init(selector) {
 }
 
 // kick things off
-init("#scrolly1");
-init("#scrolly2");
+init("#part1");
+init("#part2");
 make_original_table();
