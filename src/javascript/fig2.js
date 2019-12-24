@@ -144,8 +144,8 @@ var fig2__animate_distance_measurements = function() {
       var num_lines = d3.selectAll(data).size();
 
       lines.transition()
-        .duration(2000)
-        .delay(function (d, i) { return i*100})
+        .duration(650)
+        .delay(function (d, i) { return i*40})
         .attr("x1", function (d) { return x(mystery_datapoint[0]['minimum_nights']); } )
         .attr("y1", function (d) { return y(mystery_datapoint[0]['price']); } )
         .attr("x2", function (d) { return x(d.minimum_nights); } )
@@ -161,7 +161,7 @@ var fig2__circle_closest_points_and_remove_measurement_lines = function() {
   }
   d3.select("#figure2").select("svg").selectAll(".distance_measurement")
     .transition()
-    .duration(2000)
+    .duration(800)
     .style("opacity", 0)
     .remove();
 
@@ -189,7 +189,11 @@ var fig2__circle_closest_points_and_remove_measurement_lines = function() {
       .attr("cx", function (d) { return x(d.minimum_nights); } )
       .attr("cy", function (d) { return y(d.price); } )
       .attr("r", '10px')
-      .attr('class', 'outline_only closest_points');
+      .attr('class', 'outline_only closest_points')
+      .style("opacity", 0)
+      .transition()
+      .duration(300)
+      .style("opacity", .5);
 
   })
 }

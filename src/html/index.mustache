@@ -4,11 +4,16 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>dot-run: {{intro.lesson_num}}</title>
 	<meta name="description" content="Scrollama: Sticky Side Example">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel='stylesheet' href='css/style.css'>
+
+	<title>dot-run: {{intro.lesson_num}}</title>
+
+	<base href="/" />
+	<link rel='stylesheet' href='css/text.css'>
 	<link rel='stylesheet' href='css/main.css'>
+
+	<link href="https://fonts.googleapis.com/css?family=Khula:300,600,700,800|Libre+Baskerville:400i|Montserrat:300,400&display=swap" rel="stylesheet">
 
 </head>
 
@@ -16,23 +21,33 @@
 	<main>
 		<div class="header">
 		  <div id="header-logo">
-		    <h2>dot-run</h2>
+		    <h2 class="header-logo-font">dot-run</h2>
 		  </div>
 		</div>
 
 		<div class="intro">
-		  <h3 class="intro" id="lesson-num">{{intro.lesson_num}}</h3>
-		  <h1 class="intro" id="lesson-name">{{intro.lesson_title}}</h1>
-		  <h2>{{intro.preamble}}</h2>
-			<p>
-				{{#intro}}
-			    <ul>
-		        {{#goals}}
-		            <li><p>{{.}}</p></li>
-		        {{/goals}}
-			    </ul>
-				{{/intro}}
-			</p>
+			<div class="intro-heading">
+			  <h3>{{intro.lesson_num}}</h3>
+			  <h1 id="lesson-title">{{intro.lesson_title}}</h1>
+			</div>
+			<div class="intro-outline">
+				<div id="preamble-line">
+					<h3 class="question">
+						<img src="assets/icons/activity.svg" class="inline-img-1">
+						{{intro.preamble}}
+					</h3>
+				</div>
+				<p>
+					{{#intro}}
+				    <ul>
+			        {{#goals}}
+			            <li><p>{{.}}</p></li>
+			        {{/goals}}
+				    </ul>
+					{{/intro}}
+				</p>
+			</div>
+			<img src="assets/icons/arrow-down-circle.svg" id="centered-separate-img">
 		</div>
 
 		<section class="scroll__section" id='part1'>

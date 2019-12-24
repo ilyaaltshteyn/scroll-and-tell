@@ -1,7 +1,7 @@
 intro:
   lesson_num: "Lesson 1"
   lesson_title: "The K-Nearest Neighbors Algorithm"
-  preamble: "You'll learn how to:"
+  preamble: "In this lesson:"
   goals:
     - "Identify classification problems"
     - "Use the K-Nearest Neighbors (KNN) machine learning algorithm to solve

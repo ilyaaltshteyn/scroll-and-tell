@@ -1,15 +1,20 @@
 /* website */
-body{
-  margin:0px;
-  /* background:#000; */
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
+
 .header {
   height:50px;
-  /* background:#FF5851; */
   width:100%;
   margin:0px auto;
   position: relative;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  padding-top: 20px;
 }
+
 .content {
   width:960px;
   background: #F0F0F0;
@@ -18,15 +23,51 @@ body{
   margin: 70px auto;
 }
 
-/* header */
 #header-logo {
   margin: 0;
+  /* margin-left: 2% */
   position: absolute;
   top: 50%;
   /* left: 1em; */
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   fill: black;
+}
+
+div.intro {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+
+div.intro-heading {
+  text-align: center;
+  margin-top: 75px;
+  margin-bottom: 75px;
+}
+
+#lesson-title {
+  margin-top: 16px;
+}
+
+div.intro-outline {
+  text-align: left;
+  margin-bottom: 95px;
+}
+
+#preamble-line {
+  display: inline-block;
+}
+
+.inline-img-1 {
+  vertical-align: text-top;
+  padding-left: 1px;
+}
+
+#centered-separate-img {
+  display: block;
+  margin: auto;
 }
 
 /* scrollama elements */
@@ -131,7 +172,6 @@ div.tooltip {
 }
 
 .outline_only {
-  opacity: .5;
   fill: none;
   stroke: black;
   stroke-width: 1;
