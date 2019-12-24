@@ -10,8 +10,7 @@ body {
   width:100%;
   margin:0px auto;
   position: relative;
-  padding-left: 1.5%;
-  padding-right: 1.5%;
+  padding-left: 1rem;
   padding-top: 20px;
 }
 
@@ -89,6 +88,7 @@ article {
   padding: 0 1rem;
   max-width: 33.3rem;
 }
+
 figure {
   position: -webkit-sticky;
   position: sticky;
@@ -97,9 +97,24 @@ figure {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
-  background-color: #8a8a8a;
   z-index: 0;
 }
+
+figure.figure-for-canvas {
+  background-color: #8a8a8a;
+}
+
+figure.section-name-div {
+  max-width: 2%;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
 figure p {
   text-align: center;
   padding: 1rem;

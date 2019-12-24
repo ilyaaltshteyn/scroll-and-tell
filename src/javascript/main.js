@@ -1,7 +1,8 @@
 function init(selector) {
   // using d3 for convenience
   var main = d3.select(selector);
-  var figure = main.select('figure');
+  var figure = main.selectAll('figure');
+  var figure_for_canvas = main.selectAll('figure.figure-for-canvas');
   var article = main.select('article');
   var step = article.selectAll('.step');
 
@@ -25,9 +26,9 @@ function init(selector) {
   // scrollama event handlers
   function update_text(selector, response) {
     if (selector === "#part1") {
-      figure.select('p').text("A table: STEP " + String(response.index));
+      figure_for_canvas.select('p').text("A table: STEP " + String(response.index));
     } else if (selector === "#part2") {
-      figure.select('p').text("Data flying around a scatterplot: STEP " + String(response.index));
+      figure_for_canvas.select('p').text("Data flying around a scatterplot: STEP " + String(response.index));
     }
   }
   function handleStepEnter(response) {

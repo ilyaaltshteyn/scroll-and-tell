@@ -35,6 +35,7 @@ h3 {
 h4 {
   font-weight: 300;
   font-size: 18px;
+  color: #FF5851;
 }
 
 p {
@@ -59,4 +60,8 @@ p {
 
 #lesson-title {
   font-size: 2.9vw;
+}
+
+.section-name-text {
+  text-align: center;
 }

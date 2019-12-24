@@ -1,5 +1,5 @@
 // Container for array of tables
-const tableDiv = d3.select('#figure1').append('div').attr('id', 'tableContainer');
+const tableDiv = d3.select('#figure1.figure-for-canvas').append('div').attr('id', 'tableContainer');
 const colnames = ["price", "minnights", "type"];
 
 // Initial data
@@ -48,7 +48,7 @@ function tabulate(
   killold=false // attempt to remove rows that are no longer in data?
 ) {
     if (newtable == true) {  // create table + make table header row
-      var table = d3.select("#figure1").append("table"),
+      var table = d3.select("#figure1.figure-for-canvas").append("table"),
           thead = table.append("thead"),
           tbody = table.append("tbody");
 
@@ -59,7 +59,7 @@ function tabulate(
       .append("th")
       .text(function(column) { return column; });
     } else {  // just select existing table
-      var tbody = d3.select("#figure1").select("table").select("tbody");
+      var tbody = d3.select("#figure1.figure-for-canvas").select("table").select("tbody");
     }
 
     if (killold == false) {  // do not remove extra row
