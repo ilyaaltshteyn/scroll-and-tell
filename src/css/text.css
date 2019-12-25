@@ -38,11 +38,16 @@ h4 {
   color: #FF5851;
 }
 
-p {
+p, table {
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 200;
   padding: .1rem;
+}
+
+/* more specific but still general */
+.italic {
+  font-style: italic;
 }
 
 /* let's get specific */

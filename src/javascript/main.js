@@ -12,7 +12,7 @@ function init(selector) {
   // generic window resize listener event
   function handleResize() {
     // 1. update height of step elements
-    var stepH = Math.floor(window.innerHeight * 0.75);
+    var stepH = Math.floor(window.innerHeight * 0.9);
     step.style('height', stepH + 'px');
     var figureHeight = window.innerHeight / 2
     var figureMarginTop = (window.innerHeight - figureHeight) / 2
@@ -37,7 +37,7 @@ function init(selector) {
 
     if (selector == "#part1"){  // part1 only
       // add table row
-      if (response['index'] == 3 && response['direction'] == "down") {
+      if (response['index'] == 2 && response['direction'] == "down") {
         fig1__add_row_to_table();  // from fig1.js
       }
     }
@@ -89,7 +89,7 @@ function init(selector) {
 
   scroller.setup({
     step: selector + ' article .step',
-    offset: 0.5,
+    offset: 0.15,
     debug: true,
   }).onStepEnter(handleStepEnter).onStepExit(handleStepExit)
   // setup resize event

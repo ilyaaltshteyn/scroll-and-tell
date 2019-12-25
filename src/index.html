@@ -7,11 +7,12 @@
 	<meta name="description" content="Scrollama: Sticky Side Example">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>dot-run: Lesson 1</title>
+	<title>scroll&tell: Lesson 1</title>
 
 	<base href="/" />
 	<link rel='stylesheet' href='css/text.css'>
 	<link rel='stylesheet' href='css/main.css'>
+	<link rel='stylesheet' href='css/table.css'>
 
 	<link href="https://fonts.googleapis.com/css?family=Khula:300,600,700,800|Libre+Baskerville:400i|Montserrat:300,400&display=swap" rel="stylesheet">
 
@@ -21,7 +22,7 @@
 	<main>
 		<div class="header">
 		  <div id="header-logo">
-		    <h2 class="header-logo-font">dot-run</h2>
+		    <h2 class="header-logo-font">scroll&tell</h2>
 		  </div>
 		</div>
 
@@ -56,22 +57,36 @@
 			<div class="scroll__graphic">
 				<article>
 					<div class='step' data-step='1'>
+						<h2>The Dataset</h2>
 						<p>For this lesson, we’ll use this dataset of property sales. It has one row per property sold, and columns with some information about each property.</p>
-						<p>Take a moment to explore the dataset.</p>
+						<p>
+							Take a moment to explore the dataset.
+							<br><br><br>
+							<img src="assets/icons/corner-down-right.svg" class="inline-img-1">
+						</p>
 					</div>
 					<div class='step' data-step='2'>
+						<h2>Classification</h2>
 						<p>A common task in machine learning is to train a computer to distinguish between different groups, or classes.</p>
-						<p>In our dataset, each row is either a house, or an apartment. These 2 groups will be our classes.</p>
+						<p>In our dataset, each row is either a house or an apartment. These 2 groups (house &amp; apartment) will be our classes.</p>
 					</div>
 					<div class='step' data-step='3'>
+						<h2>Mystery Values</h2>
 						<p>This data comes from a popular real estate listings website. Sometimes, the website’s users don’t fill out the &#39;property type&#39; field, so there are some rows that have a missing value in that column.</p>
+						<div class='flex__parent'>
+							<img src="assets/icons/help-circle.svg" class="inline__block">
+							<p class='italic inline__block'>
+								How could we train a computer to predict whether a new row is a house or an apartment?
+							</p>
+						</div>
 					</div>
 					<div class='step' data-step='4'>
-						<p>How could we train a computer to predict whether a new row is a house or an apartment?</p>
+						<h2>Classifying Mystery Values</h2>
 						<p>The task above is asking us to train a computer to determine the class of a new row. This kind of task is called a classification task. We will solve it by using a classification algorithm.</p>
-					</div>
-					<div class='step' data-step='5'>
 						<p>But first, let’s take a step back and graph this data. We’ll create a scatterplot, with a horizontal axis representing the property size, and a vertical axis representing the property price.</p>
+						<div class='continue_pointer'>
+							<img src="assets/icons/arrow-down-circle-small-black.svg" class='continue_pointer_icon'>
+						</div>
 					</div>
 				</article>
 			</div>
@@ -85,27 +100,23 @@
 			<div class="scroll__graphic">
 				<article>
 					<div class='step' data-step='6'>
-						<p>Red dots will be houses, and blue ones will be apartments.</p>
-					</div>
-					<div class='step' data-step='7'>
-						<p>Now let’s add a few more datapoints from the same dataset, to make this more interesting.</p>
-					</div>
-					<div class='step' data-step='8'>
+						<h2>Red dots are houses, blue ones are apartments</h2>
+						<p>We&#39;ve added a few more datapoints from the same dataset, to make this more interesting.</p>
 						<p>What a beautiful scatterplot! Now that we have the data plotted, let’s introduce the K-Nearest Neighbors algorithm to solve our classification task.</p>
 					</div>
-					<div class='step' data-step='9'>
+					<div class='step' data-step='7'>
 						<p>Let’s say we have this new datapoint— a property that sold for $XXX thousand, and has 720 square feet of space.</p>
 						<p>The K-Nearest Neighbors algorithm will look at the nearest neighbors of this new datapoint, and will tally up how many of them are houses, and how many are apartments.</p>
 					</div>
-					<div class='step' data-step='10'>
+					<div class='step' data-step='8'>
 						<p>How many neighbors will KNN look at?</p>
 						<p>That’s what K stands for! It’s the number of nearest neighbors to tally up! Let’s say that K is 5 for now.</p>
 					</div>
-					<div class='step' data-step='11'>
+					<div class='step' data-step='9'>
 						<p>How does KNN know which datapoints are the nearest neighbors?</p>
 						<p>It calculates the distance from the new datapoint, (at location $XXX k, 5) to every other datapoint on the grid. Then it chooses the top 5.</p>
 					</div>
-					<div class='step' data-step='12'>
+					<div class='step' data-step='10'>
 						<p>Then it will take the majority vote of those 5 datapoints, and that is the algorithm’s guess about what the mysterious new datapoint is.</p>
 						<p>In this case, 4/5 of the nearest neighbors are apartments— so our best guess is that this new datapoint is an apartment.</p>
 					</div>

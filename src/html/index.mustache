@@ -7,11 +7,12 @@
 	<meta name="description" content="Scrollama: Sticky Side Example">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>dot-run: {{intro.lesson_num}}</title>
+	<title>scroll&tell: {{intro.lesson_num}}</title>
 
 	<base href="/" />
 	<link rel='stylesheet' href='css/text.css'>
 	<link rel='stylesheet' href='css/main.css'>
+	<link rel='stylesheet' href='css/table.css'>
 
 	<link href="https://fonts.googleapis.com/css?family=Khula:300,600,700,800|Libre+Baskerville:400i|Montserrat:300,400&display=swap" rel="stylesheet">
 
@@ -21,7 +22,7 @@
 	<main>
 		<div class="header">
 		  <div id="header-logo">
-		    <h2 class="header-logo-font">dot-run</h2>
+		    <h2 class="header-logo-font">scroll&tell</h2>
 		  </div>
 		</div>
 
@@ -57,22 +58,36 @@
 			<div class="scroll__graphic">
 				<article>
 					<div class='step' data-step='1'>
-						<p>{{part1.step1}}</p>
-						<p>{{part1.step1a}}</p>
+						<h2>{{part1.step1.heading}}</h2>
+						<p>{{part1.step1.texta}}</p>
+						<p>
+							{{part1.step1.textb}}
+							<br><br><br>
+							<img src="assets/icons/corner-down-right.svg" class="inline-img-1">
+						</p>
 					</div>
 					<div class='step' data-step='2'>
-						<p>{{part1.step2}}</p>
-						<p>{{part1.step2a}}</p>
+						<h2>{{part1.step2.heading}}</h2>
+						<p>{{part1.step2.texta}}</p>
+						<p>{{part1.step2.textb}}</p>
 					</div>
 					<div class='step' data-step='3'>
-						<p>{{part1.step3}}</p>
+						<h2>{{part1.step3.heading}}</h2>
+						<p>{{part1.step3.texta}}</p>
+						<div class='flex__parent'>
+							<img src="assets/icons/help-circle.svg" class="inline__block">
+							<p class='italic inline__block'>
+								{{part1.step3.textb}}
+							</p>
+						</div>
 					</div>
 					<div class='step' data-step='4'>
-						<p>{{part1.step4}}</p>
-						<p>{{part1.step4a}}</p>
-					</div>
-					<div class='step' data-step='5'>
-						<p>{{part1.step5}}</p>
+						<h2>{{part1.step4.heading}}</h2>
+						<p>{{part1.step4.texta}}</p>
+						<p>{{part1.step4.textb}}</p>
+						<div class='continue_pointer'>
+							<img src="assets/icons/arrow-down-circle-small-black.svg" class='continue_pointer_icon'>
+						</div>
 					</div>
 				</article>
 			</div>
@@ -86,13 +101,17 @@
 			<div class="scroll__graphic">
 				<article>
 					<div class='step' data-step='6'>
-						<p>{{part2.step1}}</p>
+						<h2>{{part2.step1}}</h2>
+						<p>{{part2.step1a}}</p>
+						<p>{{part2.step1b}}</p>
 					</div>
 					<div class='step' data-step='7'>
 						<p>{{part2.step2}}</p>
+						<p>{{part2.step2a}}</p>
 					</div>
 					<div class='step' data-step='8'>
 						<p>{{part2.step3}}</p>
+						<p>{{part2.step3a}}</p>
 					</div>
 					<div class='step' data-step='9'>
 						<p>{{part2.step4}}</p>
@@ -101,14 +120,6 @@
 					<div class='step' data-step='10'>
 						<p>{{part2.step5}}</p>
 						<p>{{part2.step5a}}</p>
-					</div>
-					<div class='step' data-step='11'>
-						<p>{{part2.step6}}</p>
-						<p>{{part2.step6a}}</p>
-					</div>
-					<div class='step' data-step='12'>
-						<p>{{part2.step7}}</p>
-						<p>{{part2.step7a}}</p>
 					</div>
 				</article>
 			</div>

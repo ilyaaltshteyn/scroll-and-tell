@@ -1,29 +1,29 @@
 // Container for array of tables
 const tableDiv = d3.select('#figure1.figure-for-canvas').append('div').attr('id', 'tableContainer');
-const colnames = ["price", "minnights", "type"];
+const colnames = ["Price", "Minimum Nights", "Class"];
 
 // Initial data
 let data;
 const initialData = [
-  { price: '100', minnights: '4', type: 'Entire home/apt' },
-  { price: '32', minnights: '2', type: 'Entire home/apt' },
-  { price: '40', minnights: '6', type: 'Private room' },
-  { price: '60', minnights: '1', type: 'Entire home/apt' },
-  { price: '25', minnights: '9', type: 'Private room' },
-  { price: '27', minnights: '3', type: 'Private room' },
-  { price: '99', minnights: '1', type: 'Entire home/apt' },
-  { price: '39', minnights: '2', type: 'Private room' },
-  { price: '70', minnights: '1', type: 'Entire home/apt' },
-  { price: '45', minnights: '3', type: 'Entire home/apt' },
-  { price: '90', minnights: '1', type: 'Entire home/apt' },
-  { price: '30', minnights: '2', type: 'Private room' },
-  { price: '...', minnights: '...', type: '...' }
+  { 'Price': '100', 'Minimum Nights': '4', 'Class': 'Entire home/apt' },
+  { 'Price': '32', 'Minimum Nights': '2', 'Class': 'Entire home/apt' },
+  { 'Price': '40', 'Minimum Nights': '6', 'Class': 'Private room' },
+  { 'Price': '60', 'Minimum Nights': '1', 'Class': 'Entire home/apt' },
+  { 'Price': '25', 'Minimum Nights': '9', 'Class': 'Private room' },
+  { 'Price': '27', 'Minimum Nights': '3', 'Class': 'Private room' },
+  { 'Price': '99', 'Minimum Nights': '1', 'Class': 'Entire home/apt' },
+  { 'Price': '39', 'Minimum Nights': '2', 'Class': 'Private room' },
+  { 'Price': '70', 'Minimum Nights': '1', 'Class': 'Entire home/apt' },
+  { 'Price': '45', 'Minimum Nights': '3', 'Class': 'Entire home/apt' },
+  { 'Price': '90', 'Minimum Nights': '1', 'Class': 'Entire home/apt' }
 ];
 
 // Tasks
 function make_original_table() {
     data = JSON.parse(JSON.stringify(initialData));
     tabulate(data, colnames);
+    var lastrow = d3.select("#table_row_ix_11");
+    lastrow.transition().duration(300).style('opacity', '0');
 }
 
 function revert_to_original_table() {
@@ -33,16 +33,16 @@ function revert_to_original_table() {
 
 function fig1__add_row_to_table() {
     // Add row to table
-    // data = JSON.parse(JSON.stringify(initialData));
-    // data.push({ price: '50', minnights: '5', type: '???' });
     data = JSON.parse(JSON.stringify(initialData));
-    data.push({ price: '50', minnights: '5', type: '???' });
+    data.push({ 'Price': '50', 'Minimum Nights': '5', 'Class': '???' });
     tabulate(data, colnames, newtable=false);
+    var lastrow = d3.select("#table_row_ix_11");
+    lastrow.transition().duration(800).style('background-color', '#FFF93C');
 }
 
 // Function in charge of updating the table with the latest version of data
 function tabulate(
-  data,  // all of the data to make a table with
+  data,  // data to make a table with
   columns,  // names of columns
   newtable=true,  // new table? false if just adding/removing rows
   killold=false // attempt to remove rows that are no longer in data?
@@ -67,7 +67,8 @@ function tabulate(
       var rows = tbody.selectAll("tr")
         .data(data)
         .enter()
-        .append("tr");
+        .append("tr")
+        .attr('id', function (d, i) { return 'table_row_ix_' + i});
 
       // create a cell in each row for each column
       var cells = rows.selectAll("td")
