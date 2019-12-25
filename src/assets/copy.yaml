@@ -46,33 +46,39 @@ part1:
 
 part2:
   step1:
-    "Red dots are houses, blue ones are apartments"
-  step1a:
-    "We've added a few more datapoints from the same dataset, to make this
-    more interesting."
-  step1b:
-    "What a beautiful scatterplot! Now that we have the data plotted, let’s
-    introduce the K-Nearest Neighbors algorithm to solve our classification task."
+    heading:
+      "Beautiful scatterplot"
+    texta:
+      "Red=entire home. Blue=private room. We've added a few more datapoints from
+      the same dataset, to make this more interesting."
+    textb:
+      "What a beautiful scatterplot! Now that we have the data plotted, let’s
+      introduce the K-Nearest Neighbors algorithm to solve our classification task."
   step2:
-    "Let’s say we have this new datapoint— a property that sold for $XXX
-    thousand, and has 720 square feet of space."
-  step2a:
-    "The K-Nearest Neighbors algorithm will look at the nearest neighbors of
-    this new datapoint, and will tally up how many of them are houses, and how
-    many are apartments."
+    heading: "Mystery Datapoint"
+    texta:
+      "Let’s say we have this new datapoint— a property that sold for $XXX
+      thousand, and has 720 square feet of space."
+    textb:
+      "The K-Nearest Neighbors algorithm will look at the nearest neighbors of
+      this new datapoint, and will tally up how many of them are houses, and how
+      many are apartments."
   step3:
-    "How many neighbors will KNN look at?"
-  step3a:
-    "That’s what K stands for! It’s the number of nearest neighbors to tally up!
-    Let’s say that K is 5 for now."
+    heading: "K Neighbors"
+    texta: "How many neighbors will KNN look at?"
+    textb:
+      "That’s what K stands for! It’s the number of nearest neighbors to tally up!
+      Let’s say that K is 5 for now."
+    textc:
+      "How does KNN know which datapoints are the nearest neighbors?"
+    textd:
+      "It calculates the distance from the new datapoint, (at location $XXX k, 5)
+      to every other datapoint on the grid. Then it chooses the top 5."
   step4:
-    "How does KNN know which datapoints are the nearest neighbors?"
-  step4a:
-    "It calculates the distance from the new datapoint, (at location $XXX k, 5)
-    to every other datapoint on the grid. Then it chooses the top 5."
-  step5:
-    "Then it will take the majority vote of those 5 datapoints, and that is the
-    algorithm’s guess about what the mysterious new datapoint is."
-  step5a:
-    "In this case, 4/5 of the nearest neighbors are apartments— so our best
-    guess is that this new datapoint is an apartment."
+    heading: "Majority Wins"
+    texta:
+      "Then it will take the majority vote of those 5 datapoints, and that is the
+      algorithm’s guess about what the mysterious new datapoint is."
+    textb:
+      "In this case, 4/5 of the nearest neighbors are apartments— so our best
+      guess is that this new datapoint is an apartment."

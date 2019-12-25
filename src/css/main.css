@@ -67,6 +67,10 @@ div.intro-outline {
   display: inline-block;
   margin-bottom: 2rem;
 }
+.inline__block__text {
+  padding-left: .6rem;
+  padding-bottom: 0;
+}
 
 #centered-separate-img {
   display: block;
@@ -190,7 +194,7 @@ div.tooltip {
   animation:1s blinker linear infinite;
   -webkit-animation:1s blinker linear infinite;
   -moz-animation:1s blinker linear infinite;
-  fill: yellow;
+  fill: #FFF93C;
 }
 
 @-moz-keyframes blinker {

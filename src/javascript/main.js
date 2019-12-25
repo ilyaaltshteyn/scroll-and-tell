@@ -26,13 +26,14 @@ function init(selector) {
   // scrollama event handlers
   function update_text(selector, response) {
     if (selector === "#part1") {
-      figure_for_canvas.select('p').text("A table: STEP " + String(response.index));
+      console.log('part 1 step ' + response.index);
+      // figure_for_canvas.select('p').text("A table: STEP " + String(response.index));
     } else if (selector === "#part2") {
-      figure_for_canvas.select('p').text("Data flying around a scatterplot: STEP " + String(response.index));
+      console.log('part 2 step ' + response.index);
+      // figure_for_canvas.select('p').text("Data flying around a scatterplot: STEP " + String(response.index));
     }
   }
   function handleStepEnter(response) {
-    console.log(response)
     // response = { element, direction, index }
 
     if (selector == "#part1"){  // part1 only
@@ -48,15 +49,15 @@ function init(selector) {
         fig2__create_first_scatterplot();  // from fig2.js
       }
       // add new blinking point
-      if (response['index'] == 3 && response['direction'] == "down") {
+      if (response['index'] == 1 && response['direction'] == "down") {
         fig2__add_blinking_new_mystery_point();  // from fig2.jss
       }
       // draw lines from point to all other points
-      if (response['index'] == 5 && response['direction'] == "down") {
+      if (response['index'] == 2 && response['direction'] == "down") {
         fig2__animate_distance_measurements();  // from fig2.jss
       }
       // highlight closest points and remove lines
-      if (response['index'] == 6 && response['direction'] == "down") {
+      if (response['index'] == 3 && response['direction'] == "down") {
         fig2__circle_closest_points_and_remove_measurement_lines();  // from fig2.jss
       }
 
@@ -71,7 +72,6 @@ function init(selector) {
     update_text(selector, response);
   }
   function handleStepExit(response) {
-    console.log(response)
     // response = { element, direction, index }
 
     if (selector == "#part1"){  // part1 only
@@ -89,7 +89,7 @@ function init(selector) {
 
   scroller.setup({
     step: selector + ' article .step',
-    offset: 0.15,
+    offset: 0.7,
     debug: true,
   }).onStepEnter(handleStepEnter).onStepExit(handleStepExit)
   // setup resize event

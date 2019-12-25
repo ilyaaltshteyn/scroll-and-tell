@@ -75,7 +75,7 @@
 						<p>This data comes from a popular real estate listings website. Sometimes, the website’s users don’t fill out the &#39;property type&#39; field, so there are some rows that have a missing value in that column.</p>
 						<div class='flex__parent'>
 							<img src="assets/icons/help-circle.svg" class="inline__block">
-							<p class='italic inline__block'>
+							<p class='italic inline__block inline__block__text'>
 								How could we train a computer to predict whether a new row is a house or an apartment?
 							</p>
 						</div>
@@ -97,26 +97,40 @@
 		</section>
 
 		<section class="scroll__section" id='part2'>
+			<figure class="section-name-div">
+				<h4 class="section-name-text">K-Nearest Neighbors</h4>
+			</figure>
 			<div class="scroll__graphic">
 				<article>
 					<div class='step' data-step='6'>
-						<h2>Red dots are houses, blue ones are apartments</h2>
-						<p>We&#39;ve added a few more datapoints from the same dataset, to make this more interesting.</p>
+						<h2>Beautiful scatterplot</h2>
+						<p>Red=entire home. Blue=private room. We&#39;ve added a few more datapoints from the same dataset, to make this more interesting.</p>
 						<p>What a beautiful scatterplot! Now that we have the data plotted, let’s introduce the K-Nearest Neighbors algorithm to solve our classification task.</p>
 					</div>
 					<div class='step' data-step='7'>
+						<h2>Mystery Datapoint</h2>
 						<p>Let’s say we have this new datapoint— a property that sold for $XXX thousand, and has 720 square feet of space.</p>
 						<p>The K-Nearest Neighbors algorithm will look at the nearest neighbors of this new datapoint, and will tally up how many of them are houses, and how many are apartments.</p>
 					</div>
 					<div class='step' data-step='8'>
-						<p>How many neighbors will KNN look at?</p>
+						<h2>K Neighbors</h2>
+						<div class='flex__parent'>
+							<img src="assets/icons/help-circle.svg" class="inline__block">
+							<p class='italic inline__block inline__block__text'>
+								How many neighbors will KNN look at?
+							</p>
+						</div>
 						<p>That’s what K stands for! It’s the number of nearest neighbors to tally up! Let’s say that K is 5 for now.</p>
-					</div>
-					<div class='step' data-step='9'>
-						<p>How does KNN know which datapoints are the nearest neighbors?</p>
+						<div class='flex__parent'>
+							<img src="assets/icons/help-circle.svg" class="inline__block">
+							<p class='italic inline__block inline__block__text'>
+								How does KNN know which datapoints are the nearest neighbors?
+							</p>
+						</div>
 						<p>It calculates the distance from the new datapoint, (at location $XXX k, 5) to every other datapoint on the grid. Then it chooses the top 5.</p>
 					</div>
-					<div class='step' data-step='10'>
+					<div class='step' data-step='9'>
+						<h2>Majority Wins</h2>
 						<p>Then it will take the majority vote of those 5 datapoints, and that is the algorithm’s guess about what the mysterious new datapoint is.</p>
 						<p>In this case, 4/5 of the nearest neighbors are apartments— so our best guess is that this new datapoint is an apartment.</p>
 					</div>

@@ -1,6 +1,6 @@
-const global_fig2_margin = {top: 0, right: 0, bottom: 0, left: 0},
-  global_fig2_width = 460 - global_fig2_margin.left - global_fig2_margin.right,
-  global_fig2_height = 400 - global_fig2_margin.top - global_fig2_margin.bottom,
+const global_fig2_margin = {top: 10, right: 30, bottom: 30, left: 60},
+  global_fig2_width = 730 - global_fig2_margin.left - global_fig2_margin.right,
+  global_fig2_height = 430 - global_fig2_margin.top - global_fig2_margin.bottom,
   global_fig2_xmax = 29,
   global_fig2_ymax = 300;
 
@@ -50,8 +50,8 @@ var fig2__create_first_scatterplot = function() {
         .attr("r", '3px')
         .style('fill', function(d) {  // color dots based on room type
           if (d.room_type == 'Private room') {
-            return 'blue'
-          } else { return 'red' }
+            return '#3C56FF'
+          } else { return '#FF5851' }
         })
 
       circles.transition()
@@ -105,7 +105,7 @@ var fig2__add_blinking_new_mystery_point = function() {
     .append("circle")
     .attr("cx", function (d) { return x(d.minimum_nights); } )
     .attr("cy", function (d) { return y(d.price); } )
-    .attr("r", '3px')
+    .attr("r", '5px')
     .attr('class', 'blinking');
 }
 

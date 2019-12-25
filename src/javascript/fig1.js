@@ -5,17 +5,17 @@ const colnames = ["Price", "Minimum Nights", "Class"];
 // Initial data
 let data;
 const initialData = [
-  { 'Price': '100', 'Minimum Nights': '4', 'Class': 'Entire home/apt' },
-  { 'Price': '32', 'Minimum Nights': '2', 'Class': 'Entire home/apt' },
+  { 'Price': '100', 'Minimum Nights': '4', 'Class': 'Entire home' },
+  { 'Price': '32', 'Minimum Nights': '2', 'Class': 'Entire home' },
   { 'Price': '40', 'Minimum Nights': '6', 'Class': 'Private room' },
-  { 'Price': '60', 'Minimum Nights': '1', 'Class': 'Entire home/apt' },
+  { 'Price': '60', 'Minimum Nights': '1', 'Class': 'Entire home' },
   { 'Price': '25', 'Minimum Nights': '9', 'Class': 'Private room' },
   { 'Price': '27', 'Minimum Nights': '3', 'Class': 'Private room' },
-  { 'Price': '99', 'Minimum Nights': '1', 'Class': 'Entire home/apt' },
+  { 'Price': '99', 'Minimum Nights': '1', 'Class': 'Entire home' },
   { 'Price': '39', 'Minimum Nights': '2', 'Class': 'Private room' },
-  { 'Price': '70', 'Minimum Nights': '1', 'Class': 'Entire home/apt' },
-  { 'Price': '45', 'Minimum Nights': '3', 'Class': 'Entire home/apt' },
-  { 'Price': '90', 'Minimum Nights': '1', 'Class': 'Entire home/apt' }
+  { 'Price': '70', 'Minimum Nights': '1', 'Class': 'Entire home' },
+  { 'Price': '45', 'Minimum Nights': '3', 'Class': 'Entire home' },
+  { 'Price': '90', 'Minimum Nights': '1', 'Class': 'Entire home' }
 ];
 
 // Tasks
