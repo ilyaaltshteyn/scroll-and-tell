@@ -1,4 +1,4 @@
-const global_fig2_margin = {top: 10, right: 30, bottom: 30, left: 60},
+const global_fig2_margin = {top: 0, right: 0, bottom: 0, left: 0},
   global_fig2_width = 460 - global_fig2_margin.left - global_fig2_margin.right,
   global_fig2_height = 400 - global_fig2_margin.top - global_fig2_margin.bottom,
   global_fig2_xmax = 29,
