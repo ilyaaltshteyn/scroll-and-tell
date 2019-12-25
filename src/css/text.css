@@ -1,5 +1,6 @@
-/* element-level */
+@import "colors.css";
 
+/* element-level */
 p,
 h1,
 h2,
@@ -30,15 +31,23 @@ h2 {
 h3 {
   font-weight: 600;
   font-size: 24px;
+  color: var(--nearly-black);
 }
 
 h4 {
   font-weight: 300;
   font-size: 18px;
-  color: #FF5851;
+  color: var(--pink);
 }
 
-p, table {
+p {
+  color: var(--nearly-black);
+}
+
+p,
+table,
+text.axis-label,
+g.tick text {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 200;
@@ -48,6 +57,17 @@ p, table {
 /* more specific but still general */
 .italic {
   font-style: italic;
+}
+
+text.axis-label {
+  color: var(--nearly-black);
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+
+g.tick text {
+  font-size: 12px;
+  color: var(--nearly-black);
 }
 
 /* let's get specific */

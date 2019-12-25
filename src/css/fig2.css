@@ -1,0 +1,29 @@
+@import "colors.css";
+
+#figure2 svg path {
+  stroke-dasharray: 5;
+  stroke: var(--nearly-black);
+}
+
+/* part 2 */
+.blinking {
+  animation:1s blinker linear infinite;
+  -webkit-animation:1s blinker linear infinite;
+  -moz-animation:1s blinker linear infinite;
+  fill: var(--yellow);
+}
+
+.outline_only {
+  fill: none;
+  stroke: var(--charcoal);
+  stroke-width: 1;
+}
+
+.continue_pointer {
+  text-align: center;
+}
+
+.continue_pointer_icon {
+  display: inline-block;
+  margin-top: 40%;
+}

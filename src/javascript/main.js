@@ -2,7 +2,6 @@ function init(selector) {
   // using d3 for convenience
   var main = d3.select(selector);
   var figure = main.selectAll('figure');
-  var figure_for_canvas = main.selectAll('figure.figure-for-canvas');
   var article = main.select('article');
   var step = article.selectAll('.step');
 
@@ -15,7 +14,7 @@ function init(selector) {
     var stepH = Math.floor(window.innerHeight * 0.9);
     step.style('height', stepH + 'px');
     var figureHeight = window.innerHeight / 2
-    var figureMarginTop = (window.innerHeight - figureHeight) / 2
+    var figureMarginTop = (window.innerHeight - figureHeight) / 3
     figure
       .style('height', figureHeight + 'px')
       .style('top', figureMarginTop + 'px');
@@ -24,15 +23,6 @@ function init(selector) {
   }
 
   // scrollama event handlers
-  function update_text(selector, response) {
-    if (selector === "#part1") {
-      console.log('part 1 step ' + response.index);
-      // figure_for_canvas.select('p').text("A table: STEP " + String(response.index));
-    } else if (selector === "#part2") {
-      console.log('part 2 step ' + response.index);
-      // figure_for_canvas.select('p').text("Data flying around a scatterplot: STEP " + String(response.index));
-    }
-  }
   function handleStepEnter(response) {
     // response = { element, direction, index }
 
@@ -64,12 +54,7 @@ function init(selector) {
 
     }
 
-    // add color to current step only
-    step.classed('is-active', function (d, i) {
-      return i === response.index;
-    })
-    // update graphic based on step
-    update_text(selector, response);
+    console.log(`entered ${selector} step ` + response.index);
   }
   function handleStepExit(response) {
     // response = { element, direction, index }
@@ -80,11 +65,6 @@ function init(selector) {
         revert_to_original_table();  // from fig1.js
       }
     }
-
-    // add color to current step only
-    step.classed('is-active', false)
-    // update graphic based on step
-    update_text(selector, response);
   }
 
   scroller.setup({

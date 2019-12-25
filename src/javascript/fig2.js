@@ -1,8 +1,9 @@
-const global_fig2_margin = {top: 10, right: 30, bottom: 30, left: 60},
+const global_fig2_margin = {top: 15, right: 30, bottom: 40, left: 60},
   global_fig2_width = 650 - global_fig2_margin.left - global_fig2_margin.right,
-  global_fig2_height = 370 - global_fig2_margin.top - global_fig2_margin.bottom,
+  global_fig2_height = 500 - global_fig2_margin.top - global_fig2_margin.bottom,
   global_fig2_xmax = 29,
-  global_fig2_ymax = 300;
+  global_fig2_ymax = 300,
+  global_radius = 4;
 
 const mystery_datapoint = [{minimum_nights: 8, price: 160}];
 
@@ -30,16 +31,39 @@ var fig2__create_first_scatterplot = function() {
     svg.append("g")
       .attr("class", "myXaxis")   // Note that here we give a class to the X axis, to be able to call it later and modify it
       .attr("transform", "translate(0," + global_fig2_height + ")")
-      .call(d3.axisBottom(x));
+      .call(d3.axisBottom(x).ticks(8).tickSize(2));
+
+    // X axis label
+      svg.append("text")
+          .attr("transform",
+                "translate(" + (global_fig2_width/2) + " ," +
+                               (global_fig2_height + global_fig2_margin.top*2.3) + ")")
+          .style("text-anchor", "middle")
+          .text("Minimum Nights")
+          .classed("axis-label", true);
+
 
     // Add Y axis
     var y = d3.scaleLinear()
       .domain([0, global_fig2_ymax])
       .range([ global_fig2_height, 0]);
     svg.append("g")
-      .call(d3.axisLeft(y));
+      .call(d3.axisLeft(y).ticks(8).tickSize(2));
 
-    // Add dots
+    // Y axis label
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - global_fig2_margin.left*.85)
+      .attr("x",0 - (global_fig2_height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Price")
+      .classed("axis-label", true);
+
+    // move axis a bit to space away from tick marks
+    d3.selectAll('.domain').attr('transform', 'translate(3,-3)');
+
+    // Add dots but all in one spot at the top
     var circles = svg.append('g')
       .selectAll("dot")
       .data(data)
@@ -47,42 +71,50 @@ var fig2__create_first_scatterplot = function() {
       .append("circle")
         .attr("cx", function (d) { return x(4); } )  // origin of flying points
         .attr("cy", function (d) { return 0; } )  // origin of flying points
-        .attr("r", '3px')
+        .attr("r", global_radius)
+        .style('opacity', .8)
         .style('fill', function(d) {  // color dots based on room type
           if (d.room_type == 'Private room') {
             return '#3C56FF'
           } else { return '#FF5851' }
         })
+      .on("mouseover", handleMouseOver)
+      .on("mouseout", handleMouseOut);
 
+      // have the dots fly in
       circles.transition()
         .delay(function(d,i){return(i*3)})
         .duration(2000)
-        .attr("cx", function (d) { return x(d.minimum_nights); } )  // final locatoin of flying points
-        .attr("cy", function (d) { return y(d.price); } );  // final locatoin of flying points
+        .attr("cx", function (d) { return x(d.minimum_nights); } )  // final loc of flying points
+        .attr("cy", function (d) { return y(d.price); } );  // final loc of flying points
 
-      // SCATTERPLOT TOOLTIPS!
-      // Define div to hold tooltip
-      var tooltip_div = d3.select("body").append("div")
-          .attr("class", "tooltip")
-          .style("opacity", 0);
+      // give dots some mouseover properties (radius increase + outline + tooltip)
+      function handleMouseOver(d, i) {  // Add interactivity
+            // select element, change attributes
+            d3.select(this)
+              .attr('stroke-width', 1)
+              .attr('r', global_radius*2);
 
-      // enable mouseover events on circles
-      circles.on("mouseover", function(d) {  // add mouseover tooltip
-            tooltip_div.transition()
-              .duration(200)
-              .style("opacity", .9);
-            tooltip_div.html(
-              'Min nights: ' + String(d.minimum_nights) + '<br>Price: ' + String(d.price)
-            )
-              .style("left", (d3.event.pageX) + "px")
-              .style("top", (d3.event.pageY - 28) + "px");
-            })
-        .on("mouseout", function(d) {
-            tooltip_div.transition()
-            .duration(500)
-            .style("opacity", 0);
-        });
+            // // Specify where to put label of text
+            // svg.append("text").attr({
+            //    id: "t" + d.x + "-" + d.y + "-" + i,  // Create an id for text so we can select it later for removing on mouseout
+            //     x: function() { return xScale(d.x) - 30; },
+            //     y: function() { return yScale(d.y) - 15; }
+            // })
+            // .text(function() {
+            //   return [d.x, d.y];  // Value of the text
+            // });
+          }
 
+      function handleMouseOut(d, i) {
+            // Use D3 to select element, change color back to normal
+            d3.select(this)
+              .attr('stroke-width', 0)
+              .attr('r', global_radius);
+
+            // // Select text by id and then remove
+            // d3.select("#t" + d.x + "-" + d.y + "-" + i).remove();  // Remove text location
+          }
   })
 }
 
@@ -105,7 +137,7 @@ var fig2__add_blinking_new_mystery_point = function() {
     .append("circle")
     .attr("cx", function (d) { return x(d.minimum_nights); } )
     .attr("cy", function (d) { return y(d.price); } )
-    .attr("r", '5px')
+    .attr("r", global_radius*1.5)
     .attr('class', 'blinking');
 }
 
@@ -188,12 +220,12 @@ var fig2__circle_closest_points_and_remove_measurement_lines = function() {
       .append("circle")
       .attr("cx", function (d) { return x(d.minimum_nights); } )
       .attr("cy", function (d) { return y(d.price); } )
-      .attr("r", '10px')
+      .attr("r", global_radius*2)
       .attr('class', 'outline_only closest_points')
       .style("opacity", 0)
       .transition()
       .duration(300)
-      .style("opacity", .5);
+      .style("opacity", 1);
 
   })
 }

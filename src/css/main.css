@@ -1,3 +1,6 @@
+@import "colors.css";
+@import "utils.css";
+
 /* website */
 html,
 body {
@@ -12,17 +15,15 @@ body {
   height:60px;
   width:100%;
   margin:0px auto;
-  background-color: white;
+  background-color: var(--white);
 }
 
 #header-logo {
   margin: 0;
   margin-left: 1rem;
   vertical-align: middle;
-  /* margin-left: 2% */
   position: absolute;
   top: 50%;
-  /* left: 1em; */
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   fill: black;
@@ -78,7 +79,7 @@ div.intro-outline {
 }
 
 ::selection {
-  background-color: #FFF93C;
+  background-color: var(--yellow);
 }
 
 /* scrollama elements */
@@ -87,8 +88,10 @@ div.intro-outline {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
-  padding-top: 4rem;
+  padding-right: 2rem;
+  padding-left: 1.2rem;
+  padding-top: 10rem;
+  padding-bottom: 14rem;
 }
 .scroll__section>* {
   -webkit-box-flex: 1;
@@ -97,8 +100,7 @@ div.intro-outline {
 }
 
 .scroll__section#part1 {
-  background-color: #f3f3f3;
-  padding-bottom: 8rem;
+  background-color: var(--light-grey);
 }
 
 article {
@@ -120,12 +122,11 @@ figure {
 }
 
 figure.figure-for-canvas {
-  /* background-color: #8a8a8a; */
-  margin-right: 30px;
+  margin-right: 40px;
 }
 
 figure.section-name-div {
-  margin-right: 30px;
+  margin-right: 40px;
   max-width: 2%;
   writing-mode: vertical-lr;
   text-orientation: mixed;
@@ -144,14 +145,9 @@ figure p {
   -moz-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  /* font-size: 2rem; */
-  /* font-weight: 900; */
-  color: #fff;
 }
 .step {
   margin: 0 auto 2rem auto;
-  /* background-color: #3b3b3b; */
-  /* color: #fff; */
 }
 .step p,
 .step h1,
@@ -161,8 +157,6 @@ figure p {
   text-align: left;
   padding: 1rem;
   margin-top: auto;
-  /* margin-bottom: 1rem; */
-  /* font-size: 1.5rem; */
 }
 .step p {
   margin-bottom: 2rem;
@@ -171,61 +165,7 @@ figure p {
 .step:last-child {
   margin-bottom: 0;
 }
-.step.is-active {
-  /* background-color: goldenrod; */
-  /* color: #3b3b3b; */
-}
 
-/* part 2 */
-div.tooltip {
-    position: absolute;
-    text-align: center;
-    width: 60px;
-    height: 28px;
-    padding: 2px;
-    font: 12px sans-serif;
-    background: lightsteelblue;
-    border: 0px;
-    border-radius: 8px;
-    pointer-events: none;
-}
-
-.blinking {
-  animation:1s blinker linear infinite;
-  -webkit-animation:1s blinker linear infinite;
-  -moz-animation:1s blinker linear infinite;
-  fill: #FFF93C;
-}
-
-@-moz-keyframes blinker {
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
-}
-
-@-webkit-keyframes blinker {
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
-}
-
-@keyframes blinker {
-  0% { opacity: 1.0; }
-  50% { opacity: 0.0; }
-  100% { opacity: 1.0; }
-}
-
-.outline_only {
-  fill: none;
-  stroke: black;
-  stroke-width: 1;
-}
-
-.continue_pointer {
-  text-align: center;
-}
-
-.continue_pointer_icon {
-  display: inline-block;
-  margin-top: 40%;
+svg {
+  shape-rendering: crispEdges; /* Round any decimal pixels so it renders nicely */
 }
