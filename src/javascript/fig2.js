@@ -1,6 +1,6 @@
 const global_fig2_margin = {top: 10, right: 30, bottom: 30, left: 60},
-  global_fig2_width = 730 - global_fig2_margin.left - global_fig2_margin.right,
-  global_fig2_height = 430 - global_fig2_margin.top - global_fig2_margin.bottom,
+  global_fig2_width = 650 - global_fig2_margin.left - global_fig2_margin.right,
+  global_fig2_height = 370 - global_fig2_margin.top - global_fig2_margin.bottom,
   global_fig2_xmax = 29,
   global_fig2_ymax = 300;
 
