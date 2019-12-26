@@ -52,7 +52,7 @@ part1:
 part2:
   step1:
     heading:
-      "Beautiful scatterplot"
+      "Scatterplot!"
     texta:
       "What a beautiful scatterplot! Now that we have the data plotted, let’s
       introduce the K-Nearest Neighbors algorithm to solve our classification task."
@@ -84,3 +84,18 @@ part2:
     textb:
       "In this case, 4/5 of the nearest neighbors are apartments— so our best
       guess is that this new datapoint is an apartment."
+  step5:
+    heading: "What happens if we change K?"
+    texta:
+      "K is the model hyper-parameter that determines how many neighbors to take
+      into account. We get to pick what K is. With two possible classes in our
+      dataset, we can choose K to be any odd number, from 1 up to the size of the
+      entire dataset."
+    textb:
+      "Play around with the value for K to see how it affects the model’s guess.
+      This is called tuning the model parameters, and is a big part of creating
+      accurate machine learning models."
+    textc: "Use the slider to adjust K:"
+    textd:
+      "We will dive deeper into model parameter tuning in future lessons.
+      For now, let’s just assume that we chose to use K = 5 for our model."

@@ -1,4 +1,4 @@
-function init(selector) {
+function init(selector, callback) {
   // using d3 for convenience
   var main = d3.select(selector);
   var figure = main.selectAll('figure');
@@ -43,8 +43,9 @@ function init(selector) {
         fig2__add_blinking_new_mystery_point();  // from fig2.jss
       }
       // draw lines from point to all other points
-      if (response['index'] == 2 && response['direction'] == "down") {
+      if (response['index'] == 2) {
         fig2__animate_distance_measurements();  // from fig2.jss
+        fig2__remove_closest_point_circles();
       }
       // highlight closest points and remove lines
       if (response['index'] == 3 && response['direction'] == "down") {
@@ -75,9 +76,24 @@ function init(selector) {
   // setup resize event
   window.addEventListener('resize', handleResize);
   handleResize();
+
+  typeof callback === 'function' && callback();  // if callback, callback()
+}
+
+function set_up_slider() {
+  // slider for part 2
+  var slider = document.getElementById("myRange");
+  var output = document.getElementById("k_equals_value");
+  output.innerHTML = 'K = ' + slider.value; // Display the default slider value
+
+  // Update the current slider value (each time you drag the slider handle)
+  slider.oninput = function() {
+    output.innerHTML = 'K = ' + this.value;
+    fig2__circle_closest_points_and_remove_measurement_lines(k=this.value);
+  }
 }
 
 // kick things off
 init("#part1");
-init("#part2");
+init("#part2", set_up_slider);
 make_original_table();

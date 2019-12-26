@@ -47,7 +47,10 @@ p {
 p,
 table,
 text.axis-label,
-g.tick text {
+g.tick text,
+text#prop_privates,
+text#prop_homes,
+text#model_results_heading {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 200;
@@ -63,6 +66,23 @@ text.axis-label {
   color: var(--nearly-black);
   text-transform: uppercase;
   font-size: .8rem;
+}
+
+text#prop_privates {
+  fill: var(--blue);
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+
+text#prop_homes {
+  fill: var(--pink);
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+
+text#model_results_heading {
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 g.tick text {

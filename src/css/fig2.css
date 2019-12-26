@@ -5,12 +5,11 @@
   stroke: var(--nearly-black);
 }
 
-/* part 2 */
 .blinking {
   animation:1s blinker linear infinite;
   -webkit-animation:1s blinker linear infinite;
   -moz-animation:1s blinker linear infinite;
-  fill: var(--yellow);
+  fill: var(--nearly-black);
 }
 
 .outline_only {
@@ -26,4 +25,10 @@
 .continue_pointer_icon {
   display: inline-block;
   margin-top: 40%;
+}
+
+.distance_measurement {
+  stroke-width: 1;
+  stroke: var(--charcoal);
+  opacity: .5;
 }

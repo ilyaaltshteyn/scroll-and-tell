@@ -3,7 +3,7 @@ const global_fig2_margin = {top: 15, right: 30, bottom: 40, left: 60},
   global_fig2_height = 500 - global_fig2_margin.top - global_fig2_margin.bottom,
   global_fig2_xmax = 29,
   global_fig2_ymax = 300,
-  global_radius = 4;
+  global_radius = 5;
 
 const mystery_datapoint = [{minimum_nights: 8, price: 160}];
 
@@ -137,7 +137,7 @@ var fig2__add_blinking_new_mystery_point = function() {
     .append("circle")
     .attr("cx", function (d) { return x(d.minimum_nights); } )
     .attr("cy", function (d) { return y(d.price); } )
-    .attr("r", global_radius*1.5)
+    .attr("r", global_radius)
     .attr('class', 'blinking');
 }
 
@@ -168,9 +168,6 @@ var fig2__animate_distance_measurements = function() {
         .attr("y1", function (d) { return y(mystery_datapoint[0]['price']); } )
         .attr("x2", function (d) { return x(mystery_datapoint[0]['minimum_nights']); } )
         .attr("y2", function (d) { return y(mystery_datapoint[0]['price']); } )
-        .attr("stroke-width", 1)
-        .attr("stroke", "black")
-        .attr('opacity', .5)
         .attr('class', 'distance_measurement');
 
       var num_lines = d3.selectAll(data).size();
@@ -186,46 +183,107 @@ var fig2__animate_distance_measurements = function() {
   })
 }
 
-var fig2__circle_closest_points_and_remove_measurement_lines = function() {
-  if (d3.select("#figure2").select("svg").select(".closest_points").empty() == false) {
-    console.log('not creating new closest points blinker')
-    return  // we've already created these, no need to do again
-  }
+var fig2__circle_closest_points_and_remove_measurement_lines = function(k=5) {
+  // fade out distance_measurement lines
   d3.select("#figure2").select("svg").selectAll(".distance_measurement")
     .transition()
-    .duration(800)
+    .duration(500)
     .style("opacity", 0)
     .remove();
 
-  //Read the data
+  // get distances the data
   d3.csv("assets/data/berlin_airbnb_small.csv", function(data) {
     var svg = d3.select("#figure2").select("svg").select("g");
-    // Add X axis
     var x = d3.scaleLinear()
       .domain([0, global_fig2_xmax])
-      .range([ 0, global_fig2_width ]);
-    // Add Y axis
+      .range([ 0, global_fig2_width]);
     var y = d3.scaleLinear()
       .domain([0, global_fig2_ymax])
       .range([ global_fig2_height, 0]);
 
-    // make circles around the top 5 points
-    // data = data[:10]
-    // Add circles
-    data_small = data.slice(0, 10);
-    var circles = svg.append('g')
-      .selectAll("dot")
-      .data(data_small)
-      .enter()
-      .append("circle")
-      .attr("cx", function (d) { return x(d.minimum_nights); } )
-      .attr("cy", function (d) { return y(d.price); } )
-      .attr("r", global_radius*2)
-      .attr('class', 'outline_only closest_points')
-      .style("opacity", 0)
-      .transition()
-      .duration(300)
-      .style("opacity", 1);
+    if (svg.selectAll('#model_results_heading').size() == 0) {
+      svg.append('text')
+        .attr('id', 'model_results_heading')
+        .attr('x', global_fig2_width/2 - global_fig2_margin.left*2.2)
+        .attr('y', 0)
+        .text('Classes of nearest neighbors:');
+      svg.append('text')
+        .attr('id', 'prop_privates')
+        .attr('x', global_fig2_width/2 - global_fig2_margin.left - global_fig2_margin.right - 30)
+        .attr('y', 24);
+      svg.append('text')
+        .attr('id', 'prop_homes')
+        .attr('x', global_fig2_width/2 - global_fig2_margin.left - global_fig2_margin.right + 120)
+        .attr('y', 24);
+      }
 
-  })
+    // function to figure out how the neighbors voted
+    function update_prediction(data_subset) {
+      var private_rooms_count = 0,
+        entire_homes_count = 0;
+
+      for (i=0; i < data_subset.length; i++) {
+        if (data_subset[i].room_type === "Private room") {
+          private_rooms_count += 1;
+        } else {
+          entire_homes_count += 1;
+        };
+      }
+      var total = private_rooms_count + entire_homes_count;
+
+      // update text that holds predictions
+      d3.select('#prop_privates')
+        .text(`Private room: ${private_rooms_count}/${total}`);
+      d3.select('#prop_homes')
+        .text(`Entire home: ${entire_homes_count}/${total}`);
+    }
+
+    // check if any points need to be removed
+    var num_existing_circles = d3.select("#figure2")
+      .selectAll(".closest_points")
+      .size();
+
+    if (k > num_existing_circles) {  // make circles around any new points only
+      update_prediction(data.slice(0, k));
+
+      data_small = data.slice(num_existing_circles, k);
+
+      var circles = svg.selectAll("dot")
+        .data(data_small);
+
+      circles.enter()
+        .append("circle")
+        .attr("cx", function (d) { return x(d.minimum_nights); } )
+        .attr("cy", function (d) { return y(d.price); } )
+        .attr("r", global_radius*2)
+        .attr('class', 'outline_only closest_points')
+        .style("opacity", 0)
+        .transition()
+        .duration(200)
+        .style("opacity", 1);
+
+    } else if (k < num_existing_circles) {  // remove extra circles
+      data_small = data.slice(0, k);
+      update_prediction(data_small);
+
+      var circles = svg.selectAll(".closest_points")
+        .data(data_small);
+
+      circles.exit()
+        .transition()
+        .duration(100)
+        .style("opacity", 0)
+        .remove();
+      }
+    }
+  )
+}
+
+var fig2__remove_closest_point_circles = function() {
+  d3.select("#figure2")
+    .selectAll(".closest_points")
+    .transition()
+    .duration(200)
+    .style("opacity", 0)
+    .remove();
 }

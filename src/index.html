@@ -14,6 +14,7 @@
 	<link rel='stylesheet' href='css/main.css'>
 	<link rel='stylesheet' href='css/fig1.css'>
 	<link rel='stylesheet' href='css/fig2.css'>
+	<link rel='stylesheet' href='css/slider.css'>
 
 	<link href="https://fonts.googleapis.com/css?family=Khula:300,600,700,800|Libre+Baskerville:400i|Montserrat:300,400&display=swap" rel="stylesheet">
 
@@ -103,7 +104,7 @@
 			<div class="scroll__graphic">
 				<article>
 					<div class='step' data-step='6'>
-						<h2>Beautiful scatterplot</h2>
+						<h2>Scatterplot!</h2>
 						<p>What a beautiful scatterplot! Now that we have the data plotted, let’s introduce the K-Nearest Neighbors algorithm to solve our classification task.</p>
 					</div>
 					<div class='step' data-step='7'>
@@ -133,6 +134,26 @@
 						<p>Then it will take the majority vote of those 5 datapoints, and that is the algorithm’s guess about what the mysterious new datapoint is.</p>
 						<p>In this case, 4/5 of the nearest neighbors are apartments— so our best guess is that this new datapoint is an apartment.</p>
 					</div>
+					<div class='step' data-step='10'>
+						<h2>What happens if we change K?</h2>
+						<p>K is the model hyper-parameter that determines how many neighbors to take into account. We get to pick what K is. With two possible classes in our dataset, we can choose K to be any odd number, from 1 up to the size of the entire dataset.</p>
+						<p>Play around with the value for K to see how it affects the model’s guess. This is called tuning the model parameters, and is a big part of creating accurate machine learning models.</p>
+						<p>Use the slider to adjust K:</p>
+
+						<div class="slidecontainer">
+
+							<!-- value for gets filled automatically from js: -->
+
+
+						  <div class="slider-div">
+								<h1 id='k_equals_value'></h1>
+								<input type="range" min="1" max="30" value="5" class="slider" id="myRange">
+							</div>
+						</div>
+						<p>We will dive deeper into model parameter tuning in future lessons. For now, let’s just assume that we chose to use K = 5 for our model.</p>
+					</div>
+					<div class='step' data-step='11'>
+					</div>
 				</article>
 			</div>
 			<figure id='figure2' class='figure-for-canvas'></figure>
@@ -146,12 +167,12 @@
 
 	<script src="https://d3js.org/d3.v4.js"></script>
 	<script src='https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js'></script>
+	<script src="https://unpkg.com/d3-simple-slider"></script>
 	<script src='javascript/stickyfill.min.js'></script>
 	<script src='javascript/scrollama.min.js'></script>
 	<script src='javascript/fig1.js'></script>
 	<script src='javascript/fig2.js'></script>
 	<script src='javascript/main.js'></script>
-	<!-- <script src='javascript/fig2.js'></script> -->
 </body>
 
 </html>
