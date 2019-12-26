@@ -91,9 +91,9 @@ var fig2__create_first_scatterplot = function() {
       // give dots some mouseover properties (radius increase + outline + tooltip)
       function handleMouseOver(d, i) {  // Add interactivity
             // select element, change attributes
-            d3.select(this)
-              .attr('stroke-width', 1)
-              .attr('r', global_radius*2);
+            // d3.select(this)
+            //   .attr('stroke-width', 1)
+            //   .attr('r', global_radius*2);
 
             // // Specify where to put label of text
             // svg.append("text").attr({
@@ -108,9 +108,9 @@ var fig2__create_first_scatterplot = function() {
 
       function handleMouseOut(d, i) {
             // Use D3 to select element, change color back to normal
-            d3.select(this)
-              .attr('stroke-width', 0)
-              .attr('r', global_radius);
+            // d3.select(this)
+            //   .attr('stroke-width', 0)
+            //   .attr('r', global_radius);
 
             // // Select text by id and then remove
             // d3.select("#t" + d.x + "-" + d.y + "-" + i).remove();  // Remove text location
@@ -173,8 +173,8 @@ var fig2__animate_distance_measurements = function() {
       var num_lines = d3.selectAll(data).size();
 
       lines.transition()
-        .duration(650)
-        .delay(function (d, i) { return i*40})
+        .duration(450)
+        .delay(function (d, i) { return i*25})
         .attr("x1", function (d) { return x(mystery_datapoint[0]['minimum_nights']); } )
         .attr("y1", function (d) { return y(mystery_datapoint[0]['price']); } )
         .attr("x2", function (d) { return x(d.minimum_nights); } )

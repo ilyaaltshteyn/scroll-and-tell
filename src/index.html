@@ -135,24 +135,30 @@
 						<p>In this case, 4/5 of the nearest neighbors are apartments— so our best guess is that this new datapoint is an apartment.</p>
 					</div>
 					<div class='step' data-step='10'>
-						<h2>What happens if we change K?</h2>
+						<h2>What Happens if we Change K?</h2>
 						<p>K is the model hyper-parameter that determines how many neighbors to take into account. We get to pick what K is. With two possible classes in our dataset, we can choose K to be any odd number, from 1 up to the size of the entire dataset.</p>
-						<p>Play around with the value for K to see how it affects the model’s guess. This is called tuning the model parameters, and is a big part of creating accurate machine learning models.</p>
-						<p>Use the slider to adjust K:</p>
-
+						<p>Use the slider below to play with the value for K. Notice how it affects the model’s guess about the class of the mystery datapoint. This is called tuning the model parameters, and is a big part of creating accurate machine learning models.</p>
 						<div class="slidecontainer">
-
-							<!-- value for gets filled automatically from js: -->
-
-
 						  <div class="slider-div">
 								<h1 id='k_equals_value'></h1>
 								<input type="range" min="1" max="30" value="5" class="slider" id="myRange">
 							</div>
 						</div>
-						<p>We will dive deeper into model parameter tuning in future lessons. For now, let’s just assume that we chose to use K = 5 for our model.</p>
 					</div>
 					<div class='step' data-step='11'>
+						<h2>What a Simple Model!</h2>
+						<p>We&#39;ll dive deeper into model parameter tuning in future lessons. For now, let’s just assume that we chose to use K = 5 for our model.</p>
+						<p>When you first learn about KNN, it might seem wild that this could possibly work. It seems too basic, too reductive.</p>
+						<div class='flex__parent'>
+							<img src="assets/icons/help-circle.svg" class="inline__block">
+							<p class='italic inline__block inline__block__text'>
+								How well does the model actually work? And how do we measure that?
+							</p>
+						</div>
+					</div>
+					<div class='step' data-step='12'>
+						<h2>Testing our Model&#39;s Accuracy</h2>
+						<p>Stopping here for now.</p>
 					</div>
 				</article>
 			</div>
