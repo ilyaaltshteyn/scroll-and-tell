@@ -55,14 +55,10 @@ div.intro-outline {
   display: inline-block;
 }
 
-.inline-img-1 {
-  vertical-align: text-top;
-  padding-left: 1px;
-}
-
 .flex__parent {
   display: flex;
   padding: 1rem;
+  margin-bottom: -2rem;  /* bad, need to re-work */
 }
 .inline__block {
   display: inline-block;

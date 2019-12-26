@@ -183,13 +183,17 @@ var fig2__animate_distance_measurements = function() {
   })
 }
 
-var fig2__circle_closest_points_and_remove_measurement_lines = function(k=5) {
-  // fade out distance_measurement lines
+var fig2__remove_measurement_lines = function() {
   d3.select("#figure2").select("svg").selectAll(".distance_measurement")
     .transition()
     .duration(500)
     .style("opacity", 0)
     .remove();
+}
+
+var fig2__circle_closest_points_and_remove_measurement_lines = function(k=5) {
+  // fade out distance_measurement lines
+  fig2__remove_measurement_lines();
 
   // get distances the data
   d3.csv("assets/data/berlin_airbnb_small.csv", function(data) {
@@ -209,11 +213,11 @@ var fig2__circle_closest_points_and_remove_measurement_lines = function(k=5) {
         .text('Classes of nearest neighbors:');
       svg.append('text')
         .attr('id', 'prop_privates')
-        .attr('x', global_fig2_width/2 - global_fig2_margin.left - global_fig2_margin.right - 30)
+        .attr('x', global_fig2_width/2 - global_fig2_margin.left - global_fig2_margin.right - 32)
         .attr('y', 24);
       svg.append('text')
         .attr('id', 'prop_homes')
-        .attr('x', global_fig2_width/2 - global_fig2_margin.left - global_fig2_margin.right + 120)
+        .attr('x', global_fig2_width/2 - global_fig2_margin.left - global_fig2_margin.right + 115)
         .attr('y', 24);
       }
 

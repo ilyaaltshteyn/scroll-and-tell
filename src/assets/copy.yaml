@@ -54,7 +54,7 @@ part2:
     heading:
       "Scatterplot!"
     texta:
-      "What a beautiful scatterplot! Now that we have the data plotted, let’s
+      "Holy dog, a scatterplot! Now that we have the data plotted, let’s
       introduce the K-Nearest Neighbors algorithm to solve our classification task."
   step2:
     heading: "Mystery Datapoint"

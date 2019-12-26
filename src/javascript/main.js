@@ -26,33 +26,30 @@ function init(selector, callback) {
   function handleStepEnter(response) {
     // response = { element, direction, index }
 
-    if (selector == "#part1"){  // part1 only
-      // add table row
+    if (selector == "#part1"){  // part1 only, funcs from fig1.js
+      if (response['index'] == 1) {
+        revert_to_original_table();
+      }
       if (response['index'] == 2 && response['direction'] == "down") {
-        fig1__add_row_to_table();  // from fig1.js
+        fig1__add_row_to_table();
       }
     }
 
-    if (selector == "#part2"){  // part2 only
-      // draw scatterplot animation
+    if (selector == "#part2"){  // part2 only, all funcs from fig2.js
       if (response['index'] == 0 && response['direction'] == "down") {
-        fig2__create_first_scatterplot();  // from fig2.js
+        fig2__create_first_scatterplot();
       }
-      // add new blinking point
       if (response['index'] == 1 && response['direction'] == "down") {
-        fig2__add_blinking_new_mystery_point();  // from fig2.jss
+        fig2__add_blinking_new_mystery_point();
+        fig2__remove_measurement_lines();
       }
-      // draw lines from point to all other points
       if (response['index'] == 2) {
-        fig2__animate_distance_measurements();  // from fig2.jss
+        fig2__animate_distance_measurements();
         fig2__remove_closest_point_circles();
       }
-      // highlight closest points and remove lines
       if (response['index'] == 3 && response['direction'] == "down") {
-        fig2__circle_closest_points_and_remove_measurement_lines();  // from fig2.jss
+        fig2__circle_closest_points_and_remove_measurement_lines();
       }
-
-
     }
 
     console.log(`entered ${selector} step ` + response.index);
@@ -60,12 +57,7 @@ function init(selector, callback) {
   function handleStepExit(response) {
     // response = { element, direction, index }
 
-    if (selector == "#part1"){  // part1 only
-      // revert table to original
-      if (response['index'] == 3 && response['direction'] == "up") {
-        revert_to_original_table();  // from fig1.js
-      }
-    }
+    // this func may be unnecessary; leaving it here just in case
   }
 
   scroller.setup({
