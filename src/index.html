@@ -15,9 +15,9 @@
 	<link rel='stylesheet' href='css/fig1.css'>
 	<link rel='stylesheet' href='css/fig2.css'>
 	<link rel='stylesheet' href='css/slider.css'>
+	<link rel='stylesheet' href='css/popover.css'>
 
 	<link href="https://fonts.googleapis.com/css?family=Khula:300,600,700,800|Libre+Baskerville:400i|Montserrat:300,400&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -31,21 +31,22 @@
 		<div class="intro">
 			<div class="intro-heading">
 			  <h3>Lesson 1</h3>
-			  <h1 id="lesson-title">The K-Nearest Neighbors Algorithm</h1>
+			  <h1 id="lesson-title">K-Nearest Neighbors Part 1: The Theory</h1>
 			</div>
 			<div class="intro-outline">
 				<div id="preamble-line">
 					<h3 class="italic">
 						<!-- <img src="assets/icons/activity.svg"> -->
-						In this lesson:
+						This is a theory lesson. You'll learn:
 					</h3>
 				</div>
 				<p>
 				    <ul>
-			            <li><p>Identify classification problems</p></li>
-			            <li><p>Use the K-Nearest Neighbors (KNN) machine learning algorithm to solve classification problems</p></li>
-			            <li><p>Tune models by adjusting hyperparameters</p></li>
-			            <li><p>Measure how well your model performed using its accuracy</p></li>
+			            <li><p>We'll work with a dataset of Airbnb listings from Berlin.</p></li>
+			            <li><p>I'll introduce you to one kind of prediction problem that computers solve, called a <em>classification task</em>.</p></li>
+			            <li><p>We'll use the K-Nearest Neighbors (KNN) machine learning algorithm to solve a classification task in our Airbnb data.</p></li>
+			            <li><p>You'll tune our KNN model's <span class='tooltip'>hyperparameters<span class='tooltiptext'>This is just a fancy word for a model's settings.</span></span>.</p></li>
+			            <li><p>We'll measure how well our model performed on the prediction task.</p></li>
 				    </ul>
 				</p>
 			</div>
@@ -60,7 +61,7 @@
 				<article>
 					<div class='step' data-step='1'>
 						<h2>The Dataset</h2>
-						<p>For this lesson, we’ll use this dataset of property sales. It has one row per property sold, and columns with some information about each property.</p>
+						<p>For this lesson, we’ll use <span class='tooltip'>this dataset<a class='tooltiptext' href='google.com'>Link to dataset</a></span> of property sales. It has one row per property sold, and columns with some information about each property.</p>
 						<p>
 							Take a moment to explore the dataset.
 							<br><br><br>
@@ -69,12 +70,12 @@
 					</div>
 					<div class='step' data-step='2'>
 						<h2>Classification</h2>
-						<p>A common task in machine learning is to train a computer to distinguish between different groups, or classes.</p>
-						<p>In our dataset, each row is either a house or an apartment. These 2 groups (house &amp; apartment) will be our classes.</p>
+						<p>A common task in machine learning is to train a computer to accurately guess whether a new mystery datapoint belongs in one group (also called a <em>class</em>) or another.</p>
+						<p>In our dataset, each row is either a house or an apartment. These 2 groups (house & apartment) will be our classes.</p>
 					</div>
 					<div class='step' data-step='3'>
 						<h2>Mystery Values</h2>
-						<p>This data comes from a popular real estate listings website. Sometimes, the website’s users don’t fill out the &#39;property type&#39; field, so there are some rows that have a missing value in that column.</p>
+						<p>This data comes from a popular real estate listings website. Sometimes, the website’s users don’t fill out the 'property type' field, so there are some rows that have a missing value in that column.</p>
 						<div class='flex__parent'>
 							<img src="assets/icons/help-circle.svg" class="inline__block">
 							<p class='italic inline__block inline__block__text'>
@@ -86,7 +87,7 @@
 						<h2>Classifying Mystery Values</h2>
 						<p>The task above is asking us to train a computer to determine the class of a new row. This kind of task is called a classification task. We will solve it by using a classification algorithm.</p>
 						<p>But first, let’s take a step back and graph this data. We’ll create a scatterplot, with a horizontal axis representing the property size, and a vertical axis representing the property price.</p>
-						<p>We will draw datapoints representing entire homes in red, and ones representing private rooms in blue. If you forget, just mouse over any datapoint to see its class. Let&#39;s also include a few more datapoints from the same dataset, to make this more interesting.</p>
+						<p>We will draw datapoints representing entire homes in red, and ones representing private rooms in blue. If you forget, just mouse over any datapoint to see its class. Let's also include a few more datapoints from the same dataset, to make this more interesting.</p>
 						<div class='continue_pointer'>
 							<img src="assets/icons/arrow-down-circle-small-black.svg" class='continue_pointer_icon'>
 						</div>
@@ -147,7 +148,7 @@
 					</div>
 					<div class='step' data-step='11'>
 						<h2>What a Simple Model!</h2>
-						<p>We&#39;ll dive deeper into model parameter tuning in future lessons. For now, let’s just assume that we chose to use K = 5 for our model.</p>
+						<p>We'll dive deeper into model parameter tuning in future lessons. For now, let’s just assume that we chose to use K = 5 for our model.</p>
 						<p>When you first learn about KNN, it might seem wild that this could possibly work. It seems too basic, too reductive.</p>
 						<div class='flex__parent'>
 							<img src="assets/icons/help-circle.svg" class="inline__block">
@@ -157,7 +158,7 @@
 						</div>
 					</div>
 					<div class='step' data-step='12'>
-						<h2>Testing our Model&#39;s Accuracy</h2>
+						<h2>Testing our Model's Accuracy</h2>
 						<p>Stopping here for now.</p>
 					</div>
 				</article>

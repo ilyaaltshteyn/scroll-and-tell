@@ -50,7 +50,8 @@ text.axis-label,
 g.tick text,
 text#prop_privates,
 text#prop_homes,
-text#model_results_heading {
+text#model_results_heading,
+span.tooltiptext {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 200;

@@ -1,6 +1,10 @@
 // Container for array of tables
 const tableDiv = d3.select('#figure1.figure-for-canvas').append('div').attr('id', 'tableContainer');
-const colnames = ["Price", "Minimum Nights", "Class"];
+const colnames = [
+  {colname: "Price", coldescription: "The price per night, in euros."},
+  {colname:"Minimum Nights", coldescription: "The minimum # of nights that a guest has to reserve."},
+  {colname: "Class", coldescription: "Is the entire home for rent, or just a private room?"}
+];
 
 // Initial data
 let data;
@@ -57,7 +61,9 @@ function tabulate(
       .data(columns)
       .enter()
       .append("th")
-      .text(function(column) { return column; });
+      .html(function(column) {
+        return `<span class='tooltip'>${column.colname}<span class='tooltiptext'>${column.coldescription}</span></span>`;
+      });
     } else {  // just select existing table
       var tbody = d3.select("#figure1.figure-for-canvas").select("table").select("tbody");
     }
@@ -74,7 +80,7 @@ function tabulate(
       var cells = rows.selectAll("td")
           .data(function(row) {
               return columns.map(function(column) {
-                  return {column: column, value: row[column]};
+                  return {column: column.colname, value: row[column.colname]};
               });
           })
           .enter()

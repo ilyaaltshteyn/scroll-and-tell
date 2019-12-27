@@ -7,7 +7,7 @@
 	<meta name="description" content="Scrollama: Sticky Side Example">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>this-needs-a-name: {{intro.lesson_num}}</title>
+	<title>this-needs-a-name: {{{intro.lesson_num}}}</title>
 
 	<base href="/" />
 	<link rel='stylesheet' href='css/text.css'>
@@ -15,9 +15,9 @@
 	<link rel='stylesheet' href='css/fig1.css'>
 	<link rel='stylesheet' href='css/fig2.css'>
 	<link rel='stylesheet' href='css/slider.css'>
+	<link rel='stylesheet' href='css/popover.css'>
 
 	<link href="https://fonts.googleapis.com/css?family=Khula:300,600,700,800|Libre+Baskerville:400i|Montserrat:300,400&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -30,21 +30,21 @@
 
 		<div class="intro">
 			<div class="intro-heading">
-			  <h3>{{intro.lesson_num}}</h3>
-			  <h1 id="lesson-title">{{intro.lesson_title}}</h1>
+			  <h3>{{{intro.lesson_num}}}</h3>
+			  <h1 id="lesson-title">{{{intro.lesson_title}}}</h1>
 			</div>
 			<div class="intro-outline">
 				<div id="preamble-line">
 					<h3 class="italic">
 						<!-- <img src="assets/icons/activity.svg"> -->
-						{{intro.preamble}}
+						{{{intro.preamble}}}
 					</h3>
 				</div>
 				<p>
 					{{#intro}}
 				    <ul>
 			        {{#goals}}
-			            <li><p>{{.}}</p></li>
+			            <li><p>{{{.}}}</p></li>
 			        {{/goals}}
 				    </ul>
 					{{/intro}}
@@ -60,34 +60,34 @@
 			<div class="scroll__graphic">
 				<article>
 					<div class='step' data-step='1'>
-						<h2>{{part1.step1.heading}}</h2>
-						<p>{{part1.step1.texta}}</p>
+						<h2>{{{part1.step1.heading}}}</h2>
+						<p>{{{part1.step1.texta}}}</p>
 						<p>
-							{{part1.step1.textb}}
+							{{{part1.step1.textb}}}
 							<br><br><br>
 							<img src="assets/icons/corner-down-right.svg">
 						</p>
 					</div>
 					<div class='step' data-step='2'>
-						<h2>{{part1.step2.heading}}</h2>
-						<p>{{part1.step2.texta}}</p>
-						<p>{{part1.step2.textb}}</p>
+						<h2>{{{part1.step2.heading}}}</h2>
+						<p>{{{part1.step2.texta}}}</p>
+						<p>{{{part1.step2.textb}}}</p>
 					</div>
 					<div class='step' data-step='3'>
-						<h2>{{part1.step3.heading}}</h2>
-						<p>{{part1.step3.texta}}</p>
+						<h2>{{{part1.step3.heading}}}</h2>
+						<p>{{{part1.step3.texta}}}</p>
 						<div class='flex__parent'>
 							<img src="assets/icons/help-circle.svg" class="inline__block">
 							<p class='italic inline__block inline__block__text'>
-								{{part1.step3.textb}}
+								{{{part1.step3.textb}}}
 							</p>
 						</div>
 					</div>
 					<div class='step' data-step='4'>
-						<h2>{{part1.step4.heading}}</h2>
-						<p>{{part1.step4.texta}}</p>
-						<p>{{part1.step4.textb}}</p>
-						<p>{{part1.step4.textc}}</p>
+						<h2>{{{part1.step4.heading}}}</h2>
+						<p>{{{part1.step4.texta}}}</p>
+						<p>{{{part1.step4.textb}}}</p>
+						<p>{{{part1.step4.textc}}}</p>
 						<div class='continue_pointer'>
 							<img src="assets/icons/arrow-down-circle-small-black.svg" class='continue_pointer_icon'>
 						</div>
@@ -105,40 +105,40 @@
 			<div class="scroll__graphic">
 				<article>
 					<div class='step' data-step='6'>
-						<h2>{{part2.step1.heading}}</h2>
-						<p>{{part2.step1.texta}}</p>
+						<h2>{{{part2.step1.heading}}}</h2>
+						<p>{{{part2.step1.texta}}}</p>
 					</div>
 					<div class='step' data-step='7'>
-						<h2>{{part2.step2.heading}}</h2>
-						<p>{{part2.step2.texta}}</p>
-						<p>{{part2.step2.textb}}</p>
+						<h2>{{{part2.step2.heading}}}</h2>
+						<p>{{{part2.step2.texta}}}</p>
+						<p>{{{part2.step2.textb}}}</p>
 					</div>
 					<div class='step' data-step='8'>
-						<h2>{{part2.step3.heading}}</h2>
+						<h2>{{{part2.step3.heading}}}</h2>
 						<div class='flex__parent'>
 							<img src="assets/icons/help-circle.svg" class="inline__block">
 							<p class='italic inline__block inline__block__text'>
-								{{part2.step3.texta}}
+								{{{part2.step3.texta}}}
 							</p>
 						</div>
-						<p>{{part2.step3.textb}}</p>
+						<p>{{{part2.step3.textb}}}</p>
 						<div class='flex__parent'>
 							<img src="assets/icons/help-circle.svg" class="inline__block">
 							<p class='italic inline__block inline__block__text'>
-								{{part2.step3.textc}}
+								{{{part2.step3.textc}}}
 							</p>
 						</div>
-						<p>{{part2.step3.textd}}</p>
+						<p>{{{part2.step3.textd}}}</p>
 					</div>
 					<div class='step' data-step='9'>
-						<h2>{{part2.step4.heading}}</h2>
-						<p>{{part2.step4.texta}}</p>
-						<p>{{part2.step4.textb}}</p>
+						<h2>{{{part2.step4.heading}}}</h2>
+						<p>{{{part2.step4.texta}}}</p>
+						<p>{{{part2.step4.textb}}}</p>
 					</div>
 					<div class='step' data-step='10'>
-						<h2>{{part2.step5.heading}}</h2>
-						<p>{{part2.step5.texta}}</p>
-						<p>{{part2.step5.textb}}</p>
+						<h2>{{{part2.step5.heading}}}</h2>
+						<p>{{{part2.step5.texta}}}</p>
+						<p>{{{part2.step5.textb}}}</p>
 						<div class="slidecontainer">
 						  <div class="slider-div">
 								<h1 id='k_equals_value'></h1>
@@ -147,19 +147,19 @@
 						</div>
 					</div>
 					<div class='step' data-step='11'>
-						<h2>{{part2.step6.heading}}</h2>
-						<p>{{part2.step6.texta}}</p>
-						<p>{{part2.step6.textb}}</p>
+						<h2>{{{part2.step6.heading}}}</h2>
+						<p>{{{part2.step6.texta}}}</p>
+						<p>{{{part2.step6.textb}}}</p>
 						<div class='flex__parent'>
 							<img src="assets/icons/help-circle.svg" class="inline__block">
 							<p class='italic inline__block inline__block__text'>
-								{{part2.step6.textc}}
+								{{{part2.step6.textc}}}
 							</p>
 						</div>
 					</div>
 					<div class='step' data-step='12'>
-						<h2>{{part2.step7.heading}}</h2>
-						<p>{{part2.step7.texta}}</p>
+						<h2>{{{part2.step7.heading}}}</h2>
+						<p>{{{part2.step7.texta}}}</p>
 					</div>
 				</article>
 			</div>

@@ -76,3 +76,9 @@ table tr th:last-child {
   -moz-animation:.7s text_blinker linear infinite;
   font-weight: bold;
 }
+
+
+/* hover effects */
+table tr:hover {
+  background-color: var(--light-grey-1);
+}
