@@ -1,0 +1,73 @@
+@import "colors.css";
+
+hr {
+  border: white;
+}
+
+/* overall section styling */
+#section-faq .sideways-heading {
+  margin-left: 2rem;
+}
+
+.grid-container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto;
+  grid-column-gap: 8rem;
+  grid-row-gap: 5px;
+}
+
+#grid-text-1 {
+  grid-column: 1 / span 1;
+  grid-row: 1 / span 4;
+}
+
+#grid-text-1 h2,
+#grid-text-1 p {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 4rem;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+
+.collapsible {
+  display: flex;
+  width: 100%;
+
+  background-color: var(--nearly-black);
+  cursor: pointer;
+  padding-right: 18px;
+  padding-left: 18px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.collapsible img {
+  vertical-align: text-bottom;
+  padding-right: 1rem;
+}
+
+.collapsible p {
+  color: var(--light-grey);
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: var(--charcoal);
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+  padding: 0 12px;
+  background-color: var(--white);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  margin-bottom: 1.3rem;
+}

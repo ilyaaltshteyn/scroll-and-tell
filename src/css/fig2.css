@@ -1,5 +1,25 @@
 @import "colors.css";
 
+/* blink any element's opacity */
+@-moz-keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@-webkit-keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes blinker {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+
 #figure2 svg path {
   stroke-dasharray: 5;
   stroke: var(--nearly-black);
@@ -23,7 +43,6 @@
 }
 
 .continue_pointer_icon {
-  display: inline-block;
   margin-top: 40%;
 }
 

@@ -1,44 +1,26 @@
 @import "colors.css";
-@import "utils.css";
 
-/* website */
+  /* website */
 html,
 body {
   margin: 0;
   padding: 0;
 }
 
-.header {
-  position: relative;
-  top: 0;
-  z-index: 1;
-  height:60px;
-  width:100%;
-  margin:0px auto;
-  background-color: var(--white);
-}
-
-#header-logo {
-  margin: 0;
-  margin-left: 1rem;
-  vertical-align: middle;
-  position: absolute;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-  fill: black;
+svg {
+  shape-rendering: crispEdges; /* Round any decimal pixels so it renders nicely */
 }
 
 div.intro {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 100px;
+  margin-top: 8rem;
+  padding-bottom: 4rem;
 }
 
 div.intro-heading {
   text-align: center;
-  margin-top: 75px;
   margin-bottom: 75px;
 }
 
@@ -57,13 +39,17 @@ div.intro-outline {
 
 .flex__parent {
   display: flex;
-  padding: 1rem;
-  margin-bottom: -2rem;  /* bad, need to re-work */
 }
+
+.flex__parent .little_icon {
+  margin-bottom: -2rem;  /* bad, need to re-work */
+  padding: 1rem;
+}
+
 .inline__block {
   display: inline-block;
-  margin-bottom: 2rem;
 }
+
 .inline__block__text {
   padding-left: .6rem;
   padding-bottom: 0;
@@ -79,24 +65,16 @@ div.intro-outline {
 }
 
 /* scrollama elements */
-.scroll__section {
+.scroll__section .section_div {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-right: 2rem;
-  padding-left: 1.2rem;
-  padding-top: 10rem;
-  padding-bottom: 14rem;
 }
-.scroll__section>* {
+.scroll__section .section_div>* {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-}
-
-.scroll__section#part1 {
-  background-color: var(--light-grey);
 }
 
 article {
@@ -118,11 +96,11 @@ figure {
 }
 
 figure.figure-for-canvas {
-  margin-right: 40px;
+  /* margin-right: 40px; */
 }
 
-figure.section-name-div {
-  margin-right: 40px;
+figure.sideways-heading {
+  margin-right: 2rem;
   max-width: 2%;
   writing-mode: vertical-lr;
   text-orientation: mixed;
@@ -132,6 +110,7 @@ figure.section-name-div {
   -ms-transform: rotate(180deg);
   -o-transform: rotate(180deg);
 }
+
 figure p {
   text-align: left;
   padding: 1rem;
@@ -142,19 +121,26 @@ figure p {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+
 .step {
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: left;
 }
-.step p,
+.step h2 {
+  margin-bottom: 2rem;;
+}
+/* .step p,
 .step h1,
-.step h2,
 .step h3,
 .step h4 {
   text-align: left;
   padding: 1rem;
   margin-top: auto;
-}
-.step p {
+} */
+.step p,
+.step .inline__block {
   margin-bottom: 2rem;
 }
 
@@ -162,6 +148,91 @@ figure p {
   margin-bottom: 0;
 }
 
-svg {
-  shape-rendering: crispEdges; /* Round any decimal pixels so it renders nicely */
+/* section backgrounds and spacings */
+/* in order in which they appear */
+#custom-intro-div {
+  display: flex;
+  width: 100%;
+}
+
+#intro-div-left,
+#intro-div-right {
+  display: inline-block;
+  max-width: 50%;
+}
+
+#intro-div-right {
+  background-color: var(--pink);
+}
+
+#section-part1 {
+  background-color: var(--light-grey);
+}
+
+#section-faq {
+  background-color: var(--light-grey);
+  width: 100%;
+}
+
+#section-outro {
+  background-color: var(--pink);
+}
+
+#section-footer.flex__parent {
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.section_div {
+  padding: 10rem 6rem 10rem 3rem;
+}
+
+#section-faq .section_div {
+  display: flex;
+}
+
+/* header styling */
+#header {
+  position: relative;
+  width: 100%;
+  height: 4rem;
+  background-color: var(--navy);
+  /* border-bottom: var(--charcoal) .5px solid; */
+}
+
+#header p,
+#header h2 {
+  color: var(--light-grey);
+}
+
+#logo-div {
+  /* display: inline-block; */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-left: 3rem;
+}
+
+#header-right-side {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  width: 300px;
+  margin-right: 3rem;
+}
+
+.social-icons-container {
+  justify-content: flex-end;
+  height: 100%;
+  width: 100%;
+}
+
+.social-icon {
+  padding-left: 15px;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: 0;
 }

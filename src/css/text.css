@@ -58,6 +58,17 @@ span.tooltiptext {
   padding: .1rem;
 }
 
+/* links */
+a {
+  color: var(--light-grey);
+}
+a:visited {
+  color: var(--light-grey);
+}
+a:hover, a:active, a:focus {
+  color: var(--light-grey-2);
+}
+
 /* more specific but still general */
 .italic {
   font-style: italic;

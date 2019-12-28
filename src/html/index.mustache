@@ -7,7 +7,7 @@
 	<meta name="description" content="Scrollama: Sticky Side Example">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>this-needs-a-name: {{{intro.lesson_num}}}</title>
+	<title>{{{name}}} {{{intro.lesson_num}}}</title>
 
 	<base href="/" />
 	<link rel='stylesheet' href='css/text.css'>
@@ -16,158 +16,253 @@
 	<link rel='stylesheet' href='css/fig2.css'>
 	<link rel='stylesheet' href='css/slider.css'>
 	<link rel='stylesheet' href='css/popover.css'>
+	<link rel='stylesheet' href='css/faq.css'>
 
-	<link href="https://fonts.googleapis.com/css?family=Khula:300,600,700,800|Libre+Baskerville:400i|Montserrat:300,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Khula:300,600,700,800|Montserrat:300,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	<main>
-		<div class="header">
-		  <div id="header-logo">
-		    <h2 class="header-logo-font">this-needs-a-name</h2>
-		  </div>
-		</div>
 
-		<div class="intro">
-			<div class="intro-heading">
-			  <h3>{{{intro.lesson_num}}}</h3>
-			  <h1 id="lesson-title">{{{intro.lesson_title}}}</h1>
+		{{! <div class="section_div"> }}
+		<div id="header">
+			<div id="logo-div">
+				<h2>NAME-ME</h2>
 			</div>
-			<div class="intro-outline">
-				<div id="preamble-line">
-					<h3 class="italic">
-						<!-- <img src="assets/icons/activity.svg"> -->
-						{{{intro.preamble}}}
-					</h3>
+
+			<div id="header-right-side">
+				<div class="flex__parent social-icons-container">
+					<img src="assets/icons/twitter.svg" class="inline__block social-icon">
+					<img src="assets/icons/linkedin.svg" class="inline__block social-icon">
+					<img src="assets/icons/mail.svg" class="inline__block social-icon">
+					<img src="assets/icons/github.svg" class="inline__block social-icon">
 				</div>
-				<p>
-					{{#intro}}
-				    <ul>
-			        {{#goals}}
-			            <li><p>{{{.}}}</p></li>
-			        {{/goals}}
-				    </ul>
-					{{/intro}}
-				</p>
 			</div>
-			<img src="assets/icons/arrow-down-circle.svg" id="centered-separate-img">
 		</div>
 
-		<section class="scroll__section" id='part1'>
-			<figure class="section-name-div">
-				<h4 class="section-name-text">Classification Problems</h4>
-			</figure>
-			<div class="scroll__graphic">
-				<article>
-					<div class='step' data-step='1'>
-						<h2>{{{part1.step1.heading}}}</h2>
-						<p>{{{part1.step1.texta}}}</p>
+		<div id="custom-intro-div">
+			<div id="intro-div-left">
+				<div class="intro">
+					<div class="intro-heading">
+					<h3>{{{intro.lesson_num}}}</h3>
+					<h1 id="lesson-title">{{{intro.lesson_title}}}</h1>
+					</div>
+				</div>
+				<img src="assets/icons/arrow-down-circle.svg" id="centered-separate-img">
+			</div>
+			<div id='intro-div-right'>
+				<div class="intro">
+					<div class="intro-outline">
+						<div id="preamble-line">
+							<h3 class="italic">
+								{{{intro.preamble}}}
+							</h3>
+						</div>
 						<p>
-							{{{part1.step1.textb}}}
+							{{#intro}}
+							<ul>
+							{{#goals}}
+								<li><p>{{{.}}}</p></li>
+							{{/goals}}
+							</ul>
+							{{/intro}}
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section class="scroll__section" id='section-part1'>
+			<div class="section_div">
+
+				<figure class="sideways-heading">
+					<h4 class="section-name-text">Classification Problems</h4>
+				</figure>
+				<div class="scroll__graphic">
+					<article>
+						<div class='step' data-step='1'>
+							<h2>{{{part1.step1.heading}}}</h2>
+							<p>{{{part1.step1.texta}}}</p>
+							<p>
+								{{{part1.step1.textb}}}
+								<br><br><br>
+								<img src="assets/icons/corner-down-right.svg">
+							</p>
+						</div>
+						<div class='step' data-step='2'>
+							<h2>{{{part1.step2.heading}}}</h2>
+							<p>{{{part1.step2.texta}}}</p>
+							<p>{{{part1.step2.textb}}}</p>
+						</div>
+						<div class='step' data-step='3'>
+							<h2>{{{part1.step3.heading}}}</h2>
+							<p>{{{part1.step3.texta}}}</p>
+							<div class='flex__parent little_icon'>
+								<img src="assets/icons/help-circle.svg" class="inline__block">
+								<p class='italic inline__block inline__block__text'>
+									{{{part1.step3.textb}}}
+								</p>
+							</div>
+						</div>
+						<div class='step' data-step='4'>
+							<h2>{{{part1.step4.heading}}}</h2>
+							<p>{{{part1.step4.texta}}}</p>
+							<p>{{{part1.step4.textb}}}</p>
+							<p>{{{part1.step4.textc}}}</p>
+							<div class='continue_pointer'>
+								<img src="assets/icons/arrow-down-circle-small-black.svg" class='inline__block continue_pointer_icon'>
+							</div>
+						</div>
+					</article>
+				</div>
+
+				<figure id='figure1' class='figure-for-canvas'></figure>
+			</div>
+		</section>
+
+		<section class="scroll__section" id='section-part2'>
+			<div class="section_div">
+
+				<figure class="sideways-heading">
+					<h4 class="section-name-text">K-Nearest Neighbors</h4>
+				</figure>
+				<div class="scroll__graphic">
+					<article>
+						<div class='step' data-step='6'>
+							<h2>{{{part2.step1.heading}}}</h2>
+							<p>{{{part2.step1.texta}}}</p>
+						</div>
+						<div class='step' data-step='7'>
+							<h2>{{{part2.step2.heading}}}</h2>
+							<p>{{{part2.step2.texta}}}</p>
+							<p>{{{part2.step2.textb}}}</p>
+						</div>
+						<div class='step' data-step='8'>
+							<h2>{{{part2.step3.heading}}}</h2>
+							<div class='flex__parent little_icon'>
+								<img src="assets/icons/help-circle.svg" class="inline__block">
+								<p class='italic inline__block inline__block__text'>
+									{{{part2.step3.texta}}}
+								</p>
+							</div>
+							<p>{{{part2.step3.textb}}}</p>
+							<div class='flex__parent little_icon'>
+								<img src="assets/icons/help-circle.svg" class="inline__block">
+								<p class='italic inline__block inline__block__text'>
+									{{{part2.step3.textc}}}
+								</p>
+							</div>
+							<p>{{{part2.step3.textd}}}</p>
+						</div>
+						<div class='step' data-step='9'>
+							<h2>{{{part2.step4.heading}}}</h2>
+							<p>{{{part2.step4.texta}}}</p>
+							<p>{{{part2.step4.textb}}}</p>
+						</div>
+						<div class='step' data-step='10'>
+							<h2>{{{part2.step5.heading}}}</h2>
+							<p>{{{part2.step5.texta}}}</p>
+							<p>{{{part2.step5.textb}}}</p>
+							<div class="slidecontainer">
+							  <div class="slider-div">
+									<h1 id='k_equals_value'></h1>
+									<input type="range" min="1" max="60" value="5" class="slider" id="myRange">
+								</div>
+							</div>
+						</div>
+						<div class='step' data-step='11'>
+							<h2>{{{part2.step6.heading}}}</h2>
+							<p>{{{part2.step6.texta}}}</p>
+							<p>{{{part2.step6.textb}}}</p>
+							<div class='flex__parent little_icon'>
+								<img src="assets/icons/help-circle.svg" class="inline__block">
+								<p class='italic inline__block inline__block__text'>
+									{{{part2.step6.textc}}}
+								</p>
+							</div>
+						</div>
+						<div class='step' data-step='12'>
+							<h2>{{{part2.step7.heading}}}</h2>
+							<p>{{{part2.step7.texta}}}</p>
+							<p>{{{part2.step7.textb}}}</p>
+							<p>{{{part2.step7.textc}}}</p>
+							<div class='continue_pointer'>
+								<img src="assets/icons/arrow-down-circle-small-black.svg" class='inline__block continue_pointer_icon'>
+							</div>
+						</div>
+					</article>
+				</div>
+				<figure id='figure2' class='figure-for-canvas'></figure>
+
+			</div>
+		</section>
+
+		<section id='section-faq'>
+			<div class="section_div">
+
+				<figure class="sideways-heading">
+					<h4 class="section-name-text">FAQ!</h4>
+				</figure>
+
+				<div class="grid-container">
+					<div class="grid-item" id='grid-text-1'>
+						<h2>
+							{{{faq.heading}}}
+						</h2>
+						<p>
+							{{{faq.intro}}}
 							<br><br><br>
 							<img src="assets/icons/corner-down-right.svg">
 						</p>
-					</div>
-					<div class='step' data-step='2'>
-						<h2>{{{part1.step2.heading}}}</h2>
-						<p>{{{part1.step2.texta}}}</p>
-						<p>{{{part1.step2.textb}}}</p>
-					</div>
-					<div class='step' data-step='3'>
-						<h2>{{{part1.step3.heading}}}</h2>
-						<p>{{{part1.step3.texta}}}</p>
-						<div class='flex__parent'>
-							<img src="assets/icons/help-circle.svg" class="inline__block">
-							<p class='italic inline__block inline__block__text'>
-								{{{part1.step3.textb}}}
-							</p>
-						</div>
-					</div>
-					<div class='step' data-step='4'>
-						<h2>{{{part1.step4.heading}}}</h2>
-						<p>{{{part1.step4.texta}}}</p>
-						<p>{{{part1.step4.textb}}}</p>
-						<p>{{{part1.step4.textc}}}</p>
-						<div class='continue_pointer'>
-							<img src="assets/icons/arrow-down-circle-small-black.svg" class='continue_pointer_icon'>
-						</div>
-					</div>
-				</article>
-			</div>
 
-			<figure id='figure1' class='figure-for-canvas'></figure>
+					</div>
+
+				  <div class="grid-item">
+						<button type="button" class="collapsible"><p><img src="assets/icons/help-circle-white.svg" class="inline__block"><em>{{{faq.q1}}}</em></p></button>
+						<div class="content">
+							<p>{{{faq.a1}}}</p>
+						</div>
+					</div>
+
+
+				  <div class="grid-item">
+						<button type="button" class="collapsible"><p><img src="assets/icons/help-circle-white.svg" class="inline__block"><em>{{{faq.q2}}}</em></p></button>
+						<div class="content">
+						  <p>{{{faq.a2}}}</p>
+						</div>
+					</div>
+
+					<div class="grid-item">
+						<button type="button" class="collapsible"><p><img src="assets/icons/help-circle-white.svg" class="inline__block"><em>{{{faq.q3}}}</em></p></button>
+						<div class="content">
+							<p>{{{faq.a3}}}</p>
+						</div>
+					</div>
+
+					<div class="grid-item">
+						<button type="button" class="collapsible"><p><img src="assets/icons/help-circle-white.svg" class="inline__block"><em>{{{faq.q4}}}</em></p></button>
+						<div class="content">
+							<p>{{{faq.a4}}}</p>
+						</div>
+					</div>
+
+				</div>
+			</div>
 		</section>
 
-		<section class="scroll__section" id='part2'>
-			<figure class="section-name-div">
-				<h4 class="section-name-text">K-Nearest Neighbors</h4>
-			</figure>
-			<div class="scroll__graphic">
-				<article>
-					<div class='step' data-step='6'>
-						<h2>{{{part2.step1.heading}}}</h2>
-						<p>{{{part2.step1.texta}}}</p>
-					</div>
-					<div class='step' data-step='7'>
-						<h2>{{{part2.step2.heading}}}</h2>
-						<p>{{{part2.step2.texta}}}</p>
-						<p>{{{part2.step2.textb}}}</p>
-					</div>
-					<div class='step' data-step='8'>
-						<h2>{{{part2.step3.heading}}}</h2>
-						<div class='flex__parent'>
-							<img src="assets/icons/help-circle.svg" class="inline__block">
-							<p class='italic inline__block inline__block__text'>
-								{{{part2.step3.texta}}}
-							</p>
-						</div>
-						<p>{{{part2.step3.textb}}}</p>
-						<div class='flex__parent'>
-							<img src="assets/icons/help-circle.svg" class="inline__block">
-							<p class='italic inline__block inline__block__text'>
-								{{{part2.step3.textc}}}
-							</p>
-						</div>
-						<p>{{{part2.step3.textd}}}</p>
-					</div>
-					<div class='step' data-step='9'>
-						<h2>{{{part2.step4.heading}}}</h2>
-						<p>{{{part2.step4.texta}}}</p>
-						<p>{{{part2.step4.textb}}}</p>
-					</div>
-					<div class='step' data-step='10'>
-						<h2>{{{part2.step5.heading}}}</h2>
-						<p>{{{part2.step5.texta}}}</p>
-						<p>{{{part2.step5.textb}}}</p>
-						<div class="slidecontainer">
-						  <div class="slider-div">
-								<h1 id='k_equals_value'></h1>
-								<input type="range" min="1" max="60" value="5" class="slider" id="myRange">
-							</div>
-						</div>
-					</div>
-					<div class='step' data-step='11'>
-						<h2>{{{part2.step6.heading}}}</h2>
-						<p>{{{part2.step6.texta}}}</p>
-						<p>{{{part2.step6.textb}}}</p>
-						<div class='flex__parent'>
-							<img src="assets/icons/help-circle.svg" class="inline__block">
-							<p class='italic inline__block inline__block__text'>
-								{{{part2.step6.textc}}}
-							</p>
-						</div>
-					</div>
-					<div class='step' data-step='12'>
-						<h2>{{{part2.step7.heading}}}</h2>
-						<p>{{{part2.step7.texta}}}</p>
-					</div>
-				</article>
+		<section id='section-outro'>
+			<div class="section_div">
+				<h3>I loved making this.</h3>
+				<h1>If you loved reading it, spread the word!</h1>
+				<h3>I’ll make new ones if this gets enough visits!</h3>
 			</div>
-			<figure id='figure2' class='figure-for-canvas'></figure>
-
 		</section>
 
-		<section id='outro'></section>
+		<div id='section-footer' class="flex__parent">
+			<div  class='footer_content inline__block'>
+				<h3>Get in touch: ilya@gmail.com</h3>
+			</div>
+		</div>
 	</main>
 
 	<!-- <div class='debug'></div> -->
@@ -179,6 +274,7 @@
 	<script src='javascript/scrollama.min.js'></script>
 	<script src='javascript/fig1.js'></script>
 	<script src='javascript/fig2.js'></script>
+	<script src='javascript/faq.js'></script>
 	<script src='javascript/main.js'></script>
 </body>
 

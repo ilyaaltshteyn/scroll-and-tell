@@ -1,12 +1,10 @@
 @import "colors.css";
-@import "utils.css";
 
 table {
   border-collapse: separate;
   border-spacing: 0;
   display: inline-block;
 }
-
 
 table tr th,
 table tr td {
@@ -69,14 +67,33 @@ table tr th:last-child {
   border-right: 1px solid var(--mid-grey);
 }
 
-/* blinking new mystery datapoint */
+/* new mystery datapoint */
+
+/* blink text color opacity only */
+@-moz-keyframes text_blinker {
+  0% { color: rgba(0, 0, 0, .99); }
+  50% { color: rgba(0, 0, 0, 0.1); }
+  100% { color: rgba(0, 0, 0, .99); }
+}
+
+@-webkit-keyframes text_blinker {
+  0% { color: rgba(0, 0, 0, .99); }
+  50% { color: rgba(0, 0, 0, 0.1); }
+  100% { color: rgba(0, 0, 0, .99); }
+}
+
+@keyframes text_blinker {
+  0% { color: rgba(0, 0, 0, .99); }
+  50% { color: rgba(0, 0, 0, 0.1); }
+  100% { color: rgba(0, 0, 0, .99); }
+}
+
 #table_row_ix_11 td:last-child {
   animation: text_blinker .7s linear infinite;
   -webkit-animation:.7s text_blinker linear infinite;
   -moz-animation:.7s text_blinker linear infinite;
   font-weight: bold;
 }
-
 
 /* hover effects */
 table tr:hover {

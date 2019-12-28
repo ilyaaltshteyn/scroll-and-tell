@@ -7,7 +7,7 @@
 	<meta name="description" content="Scrollama: Sticky Side Example">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>this-needs-a-name: Lesson 1</title>
+	<title>??? Lesson 1</title>
 
 	<base href="/" />
 	<link rel='stylesheet' href='css/text.css'>
@@ -16,158 +16,252 @@
 	<link rel='stylesheet' href='css/fig2.css'>
 	<link rel='stylesheet' href='css/slider.css'>
 	<link rel='stylesheet' href='css/popover.css'>
+	<link rel='stylesheet' href='css/faq.css'>
 
-	<link href="https://fonts.googleapis.com/css?family=Khula:300,600,700,800|Libre+Baskerville:400i|Montserrat:300,400&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Khula:300,600,700,800|Montserrat:300,400&display=swap" rel="stylesheet">
 </head>
 
 <body>
 	<main>
-		<div class="header">
-		  <div id="header-logo">
-		    <h2 class="header-logo-font">this-needs-a-name</h2>
-		  </div>
-		</div>
 
-		<div class="intro">
-			<div class="intro-heading">
-			  <h3>Lesson 1</h3>
-			  <h1 id="lesson-title">K-Nearest Neighbors Part 1: The Theory</h1>
+		<div id="header">
+			<div id="logo-div">
+				<h2>NAME-ME</h2>
 			</div>
-			<div class="intro-outline">
-				<div id="preamble-line">
-					<h3 class="italic">
-						<!-- <img src="assets/icons/activity.svg"> -->
-						This is a theory lesson. You'll learn:
-					</h3>
+
+			<div id="header-right-side">
+				<div class="flex__parent social-icons-container">
+					<img src="assets/icons/twitter.svg" class="inline__block social-icon">
+					<img src="assets/icons/linkedin.svg" class="inline__block social-icon">
+					<img src="assets/icons/mail.svg" class="inline__block social-icon">
+					<img src="assets/icons/github.svg" class="inline__block social-icon">
 				</div>
-				<p>
-				    <ul>
-			            <li><p>We'll work with a dataset of Airbnb listings from Berlin.</p></li>
-			            <li><p>I'll introduce you to one kind of prediction problem that computers solve, called a <em>classification task</em>.</p></li>
-			            <li><p>We'll use the K-Nearest Neighbors (KNN) machine learning algorithm to solve a classification task in our Airbnb data.</p></li>
-			            <li><p>You'll tune our KNN model's <span class='tooltip'>hyperparameters<span class='tooltiptext'>This is just a fancy word for a model's settings.</span></span>.</p></li>
-			            <li><p>We'll measure how well our model performed on the prediction task.</p></li>
-				    </ul>
-				</p>
 			</div>
-			<img src="assets/icons/arrow-down-circle.svg" id="centered-separate-img">
 		</div>
 
-		<section class="scroll__section" id='part1'>
-			<figure class="section-name-div">
-				<h4 class="section-name-text">Classification Problems</h4>
-			</figure>
-			<div class="scroll__graphic">
-				<article>
-					<div class='step' data-step='1'>
-						<h2>The Dataset</h2>
-						<p>For this lesson, we’ll use <span class='tooltip'>this dataset<a class='tooltiptext' href='google.com'>Link to dataset</a></span> of property sales. It has one row per property sold, and columns with some information about each property.</p>
+		<div id="custom-intro-div">
+			<div id="intro-div-left">
+				<div class="intro">
+					<div class="intro-heading">
+					<h3>Lesson 1</h3>
+					<h1 id="lesson-title">K-Nearest Neighbors Part 1: The Theory</h1>
+					</div>
+				</div>
+				<img src="assets/icons/arrow-down-circle.svg" id="centered-separate-img">
+			</div>
+			<div id='intro-div-right'>
+				<div class="intro">
+					<div class="intro-outline">
+						<div id="preamble-line">
+							<h3 class="italic">
+								This is a theory lesson. You'll learn:
+							</h3>
+						</div>
 						<p>
-							Take a moment to explore the dataset.
+							<ul>
+								<li><p>We'll work with a dataset of Airbnb listings from Berlin.</p></li>
+								<li><p>I'll introduce you to one kind of prediction problem that computers solve, called a <em>classification task</em>.</p></li>
+								<li><p>We'll use the K-Nearest Neighbors (KNN) machine learning algorithm to solve a classification task in our Airbnb data.</p></li>
+								<li><p>You'll tune our KNN model's <span class='tooltip'>hyperparameters<span class='tooltiptext'>This is just a fancy word for a model's settings.</span></span>.</p></li>
+								<li><p>We'll measure how well our model performed on the prediction task.</p></li>
+							</ul>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section class="scroll__section" id='section-part1'>
+			<div class="section_div">
+
+				<figure class="sideways-heading">
+					<h4 class="section-name-text">Classification Problems</h4>
+				</figure>
+				<div class="scroll__graphic">
+					<article>
+						<div class='step' data-step='1'>
+							<h2>The Dataset</h2>
+							<p>For this lesson, we’ll use <span class='tooltip'>this dataset<a class='tooltiptext' href='google.com'>Link to dataset</a></span> of property sales. It has one row per property sold, and columns with some information about each property.</p>
+							<p>
+								Take a moment to explore the dataset.
+								<br><br><br>
+								<img src="assets/icons/corner-down-right.svg">
+							</p>
+						</div>
+						<div class='step' data-step='2'>
+							<h2>Classification</h2>
+							<p>A common task in machine learning is to train a computer to accurately guess whether a new mystery datapoint belongs in one group (also called a <em>class</em>) or another.</p>
+							<p>In our dataset, each row is either a house or an apartment. These 2 groups (house & apartment) will be our classes.</p>
+						</div>
+						<div class='step' data-step='3'>
+							<h2>Mystery Values</h2>
+							<p>This data comes from a popular real estate listings website. Sometimes, the website’s users don’t fill out the 'property type' field, so there are some rows that have a missing value in that column.</p>
+							<div class='flex__parent little_icon'>
+								<img src="assets/icons/help-circle.svg" class="inline__block">
+								<p class='italic inline__block inline__block__text'>
+									How could we train a computer to predict whether a new row is a house or an apartment?
+								</p>
+							</div>
+						</div>
+						<div class='step' data-step='4'>
+							<h2>Classifying Mystery Values</h2>
+							<p>The task above is asking us to train a computer to determine the class of a new row. This kind of task is called a classification task. We will solve it by using a classification algorithm.</p>
+							<p>But first, let’s take a step back and graph this data. We’ll create a scatterplot, with a horizontal axis representing the property size, and a vertical axis representing the property price.</p>
+							<p>We will draw datapoints representing entire homes in red, and ones representing private rooms in blue. If you forget, just mouse over any datapoint to see its class. Let's also include a few more datapoints from the same dataset, to make this more interesting.</p>
+							<div class='continue_pointer'>
+								<img src="assets/icons/arrow-down-circle-small-black.svg" class='inline__block continue_pointer_icon'>
+							</div>
+						</div>
+					</article>
+				</div>
+
+				<figure id='figure1' class='figure-for-canvas'></figure>
+			</div>
+		</section>
+
+		<section class="scroll__section" id='section-part2'>
+			<div class="section_div">
+
+				<figure class="sideways-heading">
+					<h4 class="section-name-text">K-Nearest Neighbors</h4>
+				</figure>
+				<div class="scroll__graphic">
+					<article>
+						<div class='step' data-step='6'>
+							<h2>Scatterplot!</h2>
+							<p>Holy dog, a scatterplot! Now that we have the data plotted, let’s introduce the K-Nearest Neighbors algorithm to solve our classification task.</p>
+						</div>
+						<div class='step' data-step='7'>
+							<h2>Mystery Datapoint</h2>
+							<p>Let’s say we have this new datapoint— a property that sold for $XXX thousand, and has 720 square feet of space.</p>
+							<p>The K-Nearest Neighbors algorithm will look at the nearest neighbors of this new datapoint, and will tally up how many of them are houses, and how many are apartments.</p>
+						</div>
+						<div class='step' data-step='8'>
+							<h2>K Neighbors</h2>
+							<div class='flex__parent little_icon'>
+								<img src="assets/icons/help-circle.svg" class="inline__block">
+								<p class='italic inline__block inline__block__text'>
+									How many neighbors will KNN look at?
+								</p>
+							</div>
+							<p>That’s what K stands for! It’s the number of nearest neighbors to tally up! Let’s say that K is 5 for now.</p>
+							<div class='flex__parent little_icon'>
+								<img src="assets/icons/help-circle.svg" class="inline__block">
+								<p class='italic inline__block inline__block__text'>
+									How does KNN know which datapoints are the nearest neighbors?
+								</p>
+							</div>
+							<p>It calculates the <span class='tooltip'> distance <span class='tooltiptext'> A common way to calculate distance is using <a href='https://en.wikipedia.org/wiki/Euclidean_distance' target='_blank'> the euclidean distance formula </a> you might remember from high school algebra. </span> </span> from the new datapoint, (at location $XXX k, 5) to every other datapoint on the grid. Then it chooses the top 5.</p>
+						</div>
+						<div class='step' data-step='9'>
+							<h2>Majority Wins</h2>
+							<p>Then it will take the majority vote of those 5 datapoints, and that is the algorithm’s guess about what the mysterious new datapoint is.</p>
+							<p>In this case, 4/5 of the nearest neighbors are apartments— so our best guess is that this new datapoint is an apartment.</p>
+						</div>
+						<div class='step' data-step='10'>
+							<h2>What Happens if we Change K?</h2>
+							<p>K is the model hyper-parameter that determines how many neighbors to take into account. We get to pick what K is. With two possible classes in our dataset, we can choose K to be any odd number, from 1 up to the size of the entire dataset.</p>
+							<p>Use the slider below to play with the value for K. Notice how it affects the model’s guess about the class of the mystery datapoint. This is called tuning the model parameters, and is a big part of creating accurate machine learning models.</p>
+							<div class="slidecontainer">
+							  <div class="slider-div">
+									<h1 id='k_equals_value'></h1>
+									<input type="range" min="1" max="60" value="5" class="slider" id="myRange">
+								</div>
+							</div>
+						</div>
+						<div class='step' data-step='11'>
+							<h2>What a Simple Model!</h2>
+							<p>We'll dive deeper into model parameter tuning in future lessons. For now, let’s just assume that we chose to use K = 5 for our model.</p>
+							<p>When you first learn about KNN, it might seem wild that this could possibly work. It seems too basic, too reductive.</p>
+							<div class='flex__parent little_icon'>
+								<img src="assets/icons/help-circle.svg" class="inline__block">
+								<p class='italic inline__block inline__block__text'>
+									How well does the model actually work? And how do we measure that?
+								</p>
+							</div>
+						</div>
+						<div class='step' data-step='12'>
+							<h2>Testing our Model's Accuracy</h2>
+							<p>Let’s remove the labels (house/apartment) from 100 of our 500 datapoints, and run the algorithm on each of those 100 “mystery” datapoints. We know what their true labels are supposed to be, and we have KNN’s guesses about what the labels should be. So, we can count how many it got right.</p>
+							<p>After doing this, we find that it guesses correctly on 75% of the datapoints! You would expect it to get 50% of them correct just by chance, so it’s way better than chance. This metric is called accuracy, and is one way to measure the performance of an algorithm.</p>
+							<p>Accuracy isn’t very sophisticated, but it will be good enough for now. We’ll dive into measuring algorithm performance more deeply in future lessons.</p>
+							<div class='continue_pointer'>
+								<img src="assets/icons/arrow-down-circle-small-black.svg" class='inline__block continue_pointer_icon'>
+							</div>
+						</div>
+					</article>
+				</div>
+				<figure id='figure2' class='figure-for-canvas'></figure>
+
+			</div>
+		</section>
+
+		<section id='section-faq'>
+			<div class="section_div">
+
+				<figure class="sideways-heading">
+					<h4 class="section-name-text">FAQ!</h4>
+				</figure>
+
+				<div class="grid-container">
+					<div class="grid-item" id='grid-text-1'>
+						<h2>
+							Still have questions?
+						</h2>
+						<p>
+							Check out the FAQ to the right! <br><br> Make sure you understand everything, because there will be a quiz after this.
 							<br><br><br>
 							<img src="assets/icons/corner-down-right.svg">
 						</p>
-					</div>
-					<div class='step' data-step='2'>
-						<h2>Classification</h2>
-						<p>A common task in machine learning is to train a computer to accurately guess whether a new mystery datapoint belongs in one group (also called a <em>class</em>) or another.</p>
-						<p>In our dataset, each row is either a house or an apartment. These 2 groups (house & apartment) will be our classes.</p>
-					</div>
-					<div class='step' data-step='3'>
-						<h2>Mystery Values</h2>
-						<p>This data comes from a popular real estate listings website. Sometimes, the website’s users don’t fill out the 'property type' field, so there are some rows that have a missing value in that column.</p>
-						<div class='flex__parent'>
-							<img src="assets/icons/help-circle.svg" class="inline__block">
-							<p class='italic inline__block inline__block__text'>
-								How could we train a computer to predict whether a new row is a house or an apartment?
-							</p>
-						</div>
-					</div>
-					<div class='step' data-step='4'>
-						<h2>Classifying Mystery Values</h2>
-						<p>The task above is asking us to train a computer to determine the class of a new row. This kind of task is called a classification task. We will solve it by using a classification algorithm.</p>
-						<p>But first, let’s take a step back and graph this data. We’ll create a scatterplot, with a horizontal axis representing the property size, and a vertical axis representing the property price.</p>
-						<p>We will draw datapoints representing entire homes in red, and ones representing private rooms in blue. If you forget, just mouse over any datapoint to see its class. Let's also include a few more datapoints from the same dataset, to make this more interesting.</p>
-						<div class='continue_pointer'>
-							<img src="assets/icons/arrow-down-circle-small-black.svg" class='continue_pointer_icon'>
-						</div>
-					</div>
-				</article>
-			</div>
 
-			<figure id='figure1' class='figure-for-canvas'></figure>
+					</div>
+
+				  <div class="grid-item">
+						<button type="button" class="collapsible"><p><img src="assets/icons/help-circle-white.svg" class="inline__block"><em>What if we had more than 2 classes?</em></p></button>
+						<div class="content">
+							<p><br>NEEDS ANSWER!<hr></p>
+						</div>
+					</div>
+
+
+				  <div class="grid-item">
+						<button type="button" class="collapsible"><p><img src="assets/icons/help-circle-white.svg" class="inline__block"><em>How would you actually make one of these models?</em></p></button>
+						<div class="content">
+						  <p><br>NEEDS ANSWER!<hr></p>
+						</div>
+					</div>
+
+					<div class="grid-item">
+						<button type="button" class="collapsible"><p><img src="assets/icons/help-circle-white.svg" class="inline__block"><em>What if we had more than 2 classes?</em></p></button>
+						<div class="content">
+							<p><br>NEEDS ANSWER!<hr></p>
+						</div>
+					</div>
+
+					<div class="grid-item">
+						<button type="button" class="collapsible"><p><img src="assets/icons/help-circle-white.svg" class="inline__block"><em>How would you actually make one of these models?</em></p></button>
+						<div class="content">
+							<p><br>NEEDS ANSWER!<hr></p>
+						</div>
+					</div>
+
+				</div>
+			</div>
 		</section>
 
-		<section class="scroll__section" id='part2'>
-			<figure class="section-name-div">
-				<h4 class="section-name-text">K-Nearest Neighbors</h4>
-			</figure>
-			<div class="scroll__graphic">
-				<article>
-					<div class='step' data-step='6'>
-						<h2>Scatterplot!</h2>
-						<p>Holy dog, a scatterplot! Now that we have the data plotted, let’s introduce the K-Nearest Neighbors algorithm to solve our classification task.</p>
-					</div>
-					<div class='step' data-step='7'>
-						<h2>Mystery Datapoint</h2>
-						<p>Let’s say we have this new datapoint— a property that sold for $XXX thousand, and has 720 square feet of space.</p>
-						<p>The K-Nearest Neighbors algorithm will look at the nearest neighbors of this new datapoint, and will tally up how many of them are houses, and how many are apartments.</p>
-					</div>
-					<div class='step' data-step='8'>
-						<h2>K Neighbors</h2>
-						<div class='flex__parent'>
-							<img src="assets/icons/help-circle.svg" class="inline__block">
-							<p class='italic inline__block inline__block__text'>
-								How many neighbors will KNN look at?
-							</p>
-						</div>
-						<p>That’s what K stands for! It’s the number of nearest neighbors to tally up! Let’s say that K is 5 for now.</p>
-						<div class='flex__parent'>
-							<img src="assets/icons/help-circle.svg" class="inline__block">
-							<p class='italic inline__block inline__block__text'>
-								How does KNN know which datapoints are the nearest neighbors?
-							</p>
-						</div>
-						<p>It calculates the distance from the new datapoint, (at location $XXX k, 5) to every other datapoint on the grid. Then it chooses the top 5.</p>
-					</div>
-					<div class='step' data-step='9'>
-						<h2>Majority Wins</h2>
-						<p>Then it will take the majority vote of those 5 datapoints, and that is the algorithm’s guess about what the mysterious new datapoint is.</p>
-						<p>In this case, 4/5 of the nearest neighbors are apartments— so our best guess is that this new datapoint is an apartment.</p>
-					</div>
-					<div class='step' data-step='10'>
-						<h2>What Happens if we Change K?</h2>
-						<p>K is the model hyper-parameter that determines how many neighbors to take into account. We get to pick what K is. With two possible classes in our dataset, we can choose K to be any odd number, from 1 up to the size of the entire dataset.</p>
-						<p>Use the slider below to play with the value for K. Notice how it affects the model’s guess about the class of the mystery datapoint. This is called tuning the model parameters, and is a big part of creating accurate machine learning models.</p>
-						<div class="slidecontainer">
-						  <div class="slider-div">
-								<h1 id='k_equals_value'></h1>
-								<input type="range" min="1" max="60" value="5" class="slider" id="myRange">
-							</div>
-						</div>
-					</div>
-					<div class='step' data-step='11'>
-						<h2>What a Simple Model!</h2>
-						<p>We'll dive deeper into model parameter tuning in future lessons. For now, let’s just assume that we chose to use K = 5 for our model.</p>
-						<p>When you first learn about KNN, it might seem wild that this could possibly work. It seems too basic, too reductive.</p>
-						<div class='flex__parent'>
-							<img src="assets/icons/help-circle.svg" class="inline__block">
-							<p class='italic inline__block inline__block__text'>
-								How well does the model actually work? And how do we measure that?
-							</p>
-						</div>
-					</div>
-					<div class='step' data-step='12'>
-						<h2>Testing our Model's Accuracy</h2>
-						<p>Stopping here for now.</p>
-					</div>
-				</article>
+		<section id='section-outro'>
+			<div class="section_div">
+				<h3>I loved making this.</h3>
+				<h1>If you loved reading it, spread the word!</h1>
+				<h3>I’ll make new ones if this gets enough visits!</h3>
 			</div>
-			<figure id='figure2' class='figure-for-canvas'></figure>
-
 		</section>
 
-		<section id='outro'></section>
+		<div id='section-footer' class="flex__parent">
+			<div  class='footer_content inline__block'>
+				<h3>Get in touch: ilya@gmail.com</h3>
+			</div>
+		</div>
 	</main>
 
 	<!-- <div class='debug'></div> -->
@@ -179,6 +273,7 @@
 	<script src='javascript/scrollama.min.js'></script>
 	<script src='javascript/fig1.js'></script>
 	<script src='javascript/fig2.js'></script>
+	<script src='javascript/faq.js'></script>
 	<script src='javascript/main.js'></script>
 </body>
 

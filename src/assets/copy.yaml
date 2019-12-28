@@ -1,3 +1,4 @@
+name: "???"
 intro:
   lesson_num: "Lesson 1"
   lesson_title: "K-Nearest Neighbors Part 1: The Theory"
@@ -76,7 +77,16 @@ part2:
     textc:
       "How does KNN know which datapoints are the nearest neighbors?"
     textd:
-      "It calculates the distance from the new datapoint, (at location $XXX k, 5)
+      "It calculates the 
+      <span class='tooltip'>
+        distance
+        <span class='tooltiptext'>
+        A common way to calculate distance is using 
+          <a href='https://en.wikipedia.org/wiki/Euclidean_distance' target='_blank'>
+            the euclidean distance formula
+          </a> you might remember from high school algebra.
+        </span>
+      </span> from the new datapoint, (at location $XXX k, 5)
       to every other datapoint on the grid. Then it chooses the top 5."
   step4:
     heading: "Majority Wins"
@@ -111,9 +121,32 @@ part2:
   step7:
     heading: "Testing our Model's Accuracy"
     texta:
-      "Stopping here for now."
+      "Let’s remove the labels (house/apartment) from 100 of our 500 datapoints,
+      and run the algorithm on each of those 100 “mystery” datapoints. We know
+      what their true labels are supposed to be, and we have KNN’s guesses about
+      what the labels should be. So, we can count how many it got right."
+    textb:
+      "After doing this, we find that it guesses correctly on 75% of the
+      datapoints! You would expect it to get 50% of them correct just by chance,
+      so it’s way better than chance. This metric is called accuracy, and is one
+      way to measure the performance of an algorithm."
+    textc:
+      "Accuracy isn’t very sophisticated, but it will be good enough for now.
+      We’ll dive into measuring algorithm performance more deeply in future
+      lessons."
 
 faq:
+  heading: "Still have questions?"
+  intro:
+    "Check out the FAQ to the right!
+    <br><br>
+    Make sure you understand everything,
+    because there will be a quiz after this."
   q1: "What if we had more than 2 classes?"
-  a1: "..."
+  a1: "<br>NEEDS ANSWER!<hr>"
   q2: "How would you actually make one of these models?"
+  a2: "<br>NEEDS ANSWER!<hr>"
+  q3: "What if we had more than 2 classes?"
+  a3: "<br>NEEDS ANSWER!<hr>"
+  q4: "How would you actually make one of these models?"
+  a4: "<br>NEEDS ANSWER!<hr>"

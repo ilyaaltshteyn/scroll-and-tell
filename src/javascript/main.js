@@ -26,7 +26,7 @@ function init(selector, callback) {
   function handleStepEnter(response) {
     // response = { element, direction, index }
 
-    if (selector == "#part1"){  // part1 only, funcs from fig1.js
+    if (selector == "#section-part1"){  // part1 only, funcs from fig1.js
       if (response['index'] == 1) {
         revert_to_original_table();
       }
@@ -35,7 +35,7 @@ function init(selector, callback) {
       }
     }
 
-    if (selector == "#part2"){  // part2 only, all funcs from fig2.js
+    if (selector == "#section-part2"){  // part2 only, all funcs from fig2.js
       if (response['index'] == 0 && response['direction'] == "down") {
         fig2__create_first_scatterplot();
       }
@@ -86,6 +86,6 @@ function set_up_slider() {
 }
 
 // kick things off
-init("#part1");
-init("#part2", set_up_slider);
+init("#section-part1");
+init("#section-part2", set_up_slider);
 make_original_table();
