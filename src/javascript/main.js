@@ -63,7 +63,7 @@ function init(selector, callback) {
   scroller.setup({
     step: selector + ' article .step',
     offset: 0.7,
-    debug: true,
+    debug: false,
   }).onStepEnter(handleStepEnter).onStepExit(handleStepExit)
   // setup resize event
   window.addEventListener('resize', handleResize);
