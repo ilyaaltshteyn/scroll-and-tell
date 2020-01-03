@@ -1,25 +1,25 @@
 // Container for array of tables
 const tableDiv = d3.select('#figure1.figure-for-canvas').append('div').attr('id', 'tableContainer');
 const colnames = [
-  {colname: "Price", coldescription: "The price per night, in euros."},
-  {colname:"Minimum Nights", coldescription: "The minimum # of nights that a guest has to reserve."},
-  {colname: "Class", coldescription: "Is the entire home for rent, or just a private room?"}
+  {colname: "Shots Made", coldescription: "The price per night, in euros."},
+  {colname:"Rebounds", coldescription: "The minimum # of nights that a guest has to reserve."},
+  {colname: "NBA Career Length", coldescription: "Is the entire home for rent, or just a private room?"}
 ];
 
 // Initial data
 let data;
 const initialData = [
-  { 'Price': '100', 'Minimum Nights': '4', 'Class': 'Entire home' },
-  { 'Price': '32', 'Minimum Nights': '2', 'Class': 'Entire home' },
-  { 'Price': '40', 'Minimum Nights': '6', 'Class': 'Private room' },
-  { 'Price': '60', 'Minimum Nights': '1', 'Class': 'Entire home' },
-  { 'Price': '25', 'Minimum Nights': '9', 'Class': 'Private room' },
-  { 'Price': '27', 'Minimum Nights': '3', 'Class': 'Private room' },
-  { 'Price': '99', 'Minimum Nights': '1', 'Class': 'Entire home' },
-  { 'Price': '39', 'Minimum Nights': '2', 'Class': 'Private room' },
-  { 'Price': '70', 'Minimum Nights': '1', 'Class': 'Entire home' },
-  { 'Price': '45', 'Minimum Nights': '3', 'Class': 'Entire home' },
-  { 'Price': '90', 'Minimum Nights': '1', 'Class': 'Entire home' }
+  { 'Shots Made': '10', 'Rebounds': '4', 'NBA Career Length': '5+ years' },
+  { 'Shots Made': '32', 'Rebounds': '2', 'NBA Career Length': '5+ years' },
+  { 'Shots Made': '40', 'Rebounds': '6', 'NBA Career Length': '5+ years' },
+  { 'Shots Made': '60', 'Rebounds': '1', 'NBA Career Length': '5+ years' },
+  { 'Shots Made': '25', 'Rebounds': '9', 'NBA Career Length': '5+ years' },
+  { 'Shots Made': '27', 'Rebounds': '3', 'NBA Career Length': '5+ years' },
+  { 'Shots Made': '99', 'Rebounds': '1', 'NBA Career Length': '5+ years' },
+  { 'Shots Made': '39', 'Rebounds': '2', 'NBA Career Length': '5+ years' },
+  { 'Shots Made': '70', 'Rebounds': '1', 'NBA Career Length': '5+ years' },
+  { 'Shots Made': '45', 'Rebounds': '3', 'NBA Career Length': '5+ years' },
+  { 'Shots Made': '90', 'Rebounds': '1', 'NBA Career Length': '5+ years' }
 ];
 
 // Tasks
@@ -38,7 +38,7 @@ function revert_to_original_table() {
 function fig1__add_row_to_table() {
     // Add row to table
     data = JSON.parse(JSON.stringify(initialData));
-    data.push({ 'Price': '50', 'Minimum Nights': '5', 'Class': '???' });
+    data.push({ 'Shots Made': '50', 'Rebounds': '5', 'NBA Career Length': '???' });
     tabulate(data, colnames, newtable=false);
     var lastrow = d3.select("#table_row_ix_11");
     lastrow.transition().duration(800).style('background-color', '#FFF93C');

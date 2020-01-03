@@ -1,15 +1,14 @@
 name: "Big Fuzzy Dog"
 intro:
   lesson_num: "Lesson 1"
-  lesson_title: "K-Nearest Neighbors Part 1: The Theory"
-  preamble: "This is a theory lesson. You'll learn:"
+  lesson_title: "How Long will a Rookie Last in the NBA?"
+  preamble: "This lesson will teach you the K-Nearest Neighbors machine laerning algorithm."
   goals:
-    - "We'll work with a dataset of Airbnb listings from Berlin."
+    - "We'll use a dataset about rookie (1st year) NBA players' career lengths."
     - "I'll introduce you to one kind of prediction problem that computers solve, called a <em>classification task</em>."
-    - "We'll use the K-Nearest Neighbors (KNN) machine learning algorithm to solve
-      a classification task in our Airbnb data."
+    - "We'll use the K-Nearest Neighbors (KNN) algorithm to predict whether or not a rookie basketballer will have a career in the NBA that lasts at least 5 years."
     - "You'll tune our KNN model's <span class='tooltip'>hyperparameters<span class='tooltiptext'>This is just a fancy word for a model's settings.</span></span>."
-    - "We'll measure how well our model performed on the prediction task."
+    - "We'll measure how well our model does at predicting which players will have 5+ year long NBA careers."
 part1:
   step1:
     heading: "The Dataset"

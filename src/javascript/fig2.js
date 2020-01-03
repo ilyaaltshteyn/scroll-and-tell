@@ -1,11 +1,11 @@
 const global_fig2_margin = {top: 15, right: 30, bottom: 40, left: 60},
   global_fig2_width = 650 - global_fig2_margin.left - global_fig2_margin.right,
   global_fig2_height = 500 - global_fig2_margin.top - global_fig2_margin.bottom,
-  global_fig2_xmax = 29,
-  global_fig2_ymax = 300,
+  global_fig2_xmax = 10,
+  global_fig2_ymax = 10,
   global_radius = 5;
 
-const mystery_datapoint = [{minimum_nights: 8, price: 160}];
+const mystery_datapoint = [{field_goals_made: 4, defensive_rebounds: 4}];
 
 var fig2__create_first_scatterplot = function() {
   if (d3.select("#figure2").select('svg').select('g').empty() == false) {
@@ -22,7 +22,7 @@ var fig2__create_first_scatterplot = function() {
             "translate(" + global_fig2_margin.left + "," + global_fig2_margin.top + ")")
 
   //Read the data
-  d3.csv("assets/data/berlin_airbnb.csv", function(data) {
+  d3.csv("assets/data/nba_sorted_with_distances.csv", function(data) {
 
     // Add X axis
     var x = d3.scaleLinear()
@@ -39,7 +39,7 @@ var fig2__create_first_scatterplot = function() {
                 "translate(" + (global_fig2_width/2) + " ," +
                                (global_fig2_height + global_fig2_margin.top*2.3) + ")")
           .style("text-anchor", "middle")
-          .text("Minimum Nights")
+          .text("Shots Made")
           .classed("axis-label", true);
 
 
@@ -57,7 +57,7 @@ var fig2__create_first_scatterplot = function() {
       .attr("x",0 - (global_fig2_height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
-      .text("Price")
+      .text("Defensive Rebounds")
       .classed("axis-label", true);
 
     // move axis a bit to space away from tick marks
@@ -74,7 +74,7 @@ var fig2__create_first_scatterplot = function() {
         .attr("r", global_radius)
         .style('opacity', .8)
         .style('fill', function(d) {  // color dots based on room type
-          if (d.room_type == 'Private room') {
+          if (d.lasted_5_years_in_nba == 'y') {
             return '#3C56FF'
           } else { return '#FF5851' }
         })
@@ -85,8 +85,8 @@ var fig2__create_first_scatterplot = function() {
       circles.transition()
         .delay(function(d,i){return(i*3)})
         .duration(2000)
-        .attr("cx", function (d) { return x(d.minimum_nights); } )  // final loc of flying points
-        .attr("cy", function (d) { return y(d.price); } );  // final loc of flying points
+        .attr("cx", function (d) { return x(d.field_goals_made); } )  // final loc of flying points
+        .attr("cy", function (d) { return y(d.defensive_rebounds); } );  // final loc of flying points
 
       // give dots some mouseover properties (radius increase + outline + tooltip)
       function handleMouseOver(d, i) {  // Add interactivity
@@ -135,8 +135,8 @@ var fig2__add_blinking_new_mystery_point = function() {
     .data(mystery_datapoint)
     .enter()
     .append("circle")
-    .attr("cx", function (d) { return x(d.minimum_nights); } )
-    .attr("cy", function (d) { return y(d.price); } )
+    .attr("cx", function (d) { return x(d.field_goals_made); } )
+    .attr("cy", function (d) { return y(d.defensive_rebounds); } )
     .attr("r", global_radius)
     .attr('class', 'blinking');
 }
@@ -147,7 +147,7 @@ var fig2__animate_distance_measurements = function() {
     return  // we've already created these, no need to do again
   }
   //Read the data
-  d3.csv("assets/data/berlin_airbnb_small.csv", function(data) {
+  d3.csv("assets/data/nba_sorted_with_distances.csv", function(data) {
     var svg = d3.select("#figure2").select("svg").select("g");
     // Add X axis
     var x = d3.scaleLinear()
@@ -158,16 +158,16 @@ var fig2__animate_distance_measurements = function() {
       .domain([0, global_fig2_ymax])
       .range([ global_fig2_height, 0]);
 
-    // console.log(x(mystery_datapoint['minimum_nights']));
+    // console.log(x(mystery_datapoint['field_goals_made']));
     var lines = svg.append('g')
       .selectAll("measurement")
       .data(data)
       .enter()
       .append('line')
-        .attr("x1", function (d) { return x(mystery_datapoint[0]['minimum_nights']); } )
-        .attr("y1", function (d) { return y(mystery_datapoint[0]['price']); } )
-        .attr("x2", function (d) { return x(mystery_datapoint[0]['minimum_nights']); } )
-        .attr("y2", function (d) { return y(mystery_datapoint[0]['price']); } )
+        .attr("x1", function (d) { return x(mystery_datapoint[0]['field_goals_made']); } )
+        .attr("y1", function (d) { return y(mystery_datapoint[0]['defensive_rebounds']); } )
+        .attr("x2", function (d) { return x(mystery_datapoint[0]['field_goals_made']); } )
+        .attr("y2", function (d) { return y(mystery_datapoint[0]['defensive_rebounds']); } )
         .attr('class', 'distance_measurement');
 
       var num_lines = d3.selectAll(data).size();
@@ -175,10 +175,10 @@ var fig2__animate_distance_measurements = function() {
       lines.transition()
         .duration(450)
         .delay(function (d, i) { return i*25})
-        .attr("x1", function (d) { return x(mystery_datapoint[0]['minimum_nights']); } )
-        .attr("y1", function (d) { return y(mystery_datapoint[0]['price']); } )
-        .attr("x2", function (d) { return x(d.minimum_nights); } )
-        .attr("y2", function (d) { return y(d.price); } );
+        .attr("x1", function (d) { return x(mystery_datapoint[0]['field_goals_made']); } )
+        .attr("y1", function (d) { return y(mystery_datapoint[0]['defensive_rebounds']); } )
+        .attr("x2", function (d) { return x(d.field_goals_made); } )
+        .attr("y2", function (d) { return y(d.defensive_rebounds); } );
 
   })
 }
@@ -196,7 +196,7 @@ var fig2__circle_closest_points_and_remove_measurement_lines = function(k=5) {
   fig2__remove_measurement_lines();
 
   // get distances the data
-  d3.csv("assets/data/berlin_airbnb_small.csv", function(data) {
+  d3.csv("assets/data/nba_sorted_with_distances.csv", function(data) {
     var svg = d3.select("#figure2").select("svg").select("g");
     var x = d3.scaleLinear()
       .domain([0, global_fig2_xmax])
@@ -227,7 +227,7 @@ var fig2__circle_closest_points_and_remove_measurement_lines = function(k=5) {
         entire_homes_count = 0;
 
       for (i=0; i < data_subset.length; i++) {
-        if (data_subset[i].room_type === "Private room") {
+        if (data_subset[i].lasted_5_years_in_nba === "y") {
           private_rooms_count += 1;
         } else {
           entire_homes_count += 1;
@@ -237,9 +237,9 @@ var fig2__circle_closest_points_and_remove_measurement_lines = function(k=5) {
 
       // update text that holds predictions
       d3.select('#prop_privates')
-        .text(`Private room: ${private_rooms_count}/${total}`);
+        .text(`5+ years: ${private_rooms_count}/${total}`);
       d3.select('#prop_homes')
-        .text(`Entire home: ${entire_homes_count}/${total}`);
+        .text(`Under 5 years: ${entire_homes_count}/${total}`);
     }
 
     // check if any points need to be removed
@@ -257,8 +257,8 @@ var fig2__circle_closest_points_and_remove_measurement_lines = function(k=5) {
 
       circles.enter()
         .append("circle")
-        .attr("cx", function (d) { return x(d.minimum_nights); } )
-        .attr("cy", function (d) { return y(d.price); } )
+        .attr("cx", function (d) { return x(d.field_goals_made); } )
+        .attr("cy", function (d) { return y(d.defensive_rebounds); } )
         .attr("r", global_radius*2)
         .attr('class', 'outline_only closest_points')
         .style("opacity", 0)
