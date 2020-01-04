@@ -2,6 +2,16 @@
 <html>
 
 <head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-155299873-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-155299873-1');
+	</script>
+
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Scrollama: Sticky Side Example">
@@ -32,10 +42,9 @@
 
 			<div id="header-right-side">
 				<div class="flex__parent social-icons-container">
-					<img src="assets/icons/twitter.svg" class="inline__block social-icon">
-					<img src="assets/icons/linkedin.svg" class="inline__block social-icon">
-					<img src="assets/icons/mail.svg" class="inline__block social-icon">
-					<img src="assets/icons/github.svg" class="inline__block social-icon">
+					<img src="assets/icons/social-1_logo-twitter.svg" class="inline__block social-icon">
+					<img src="assets/icons/social-1_logo-linkedin.svg" class="inline__block social-icon">
+					<img src="assets/icons/social-1_logo-github.svg" class="inline__block social-icon">
 				</div>
 			</div>
 		</div>
@@ -55,17 +64,38 @@
 					<div class="intro-outline">
 						<div id="preamble-line">
 							<h3 class="italic">
-								{{{intro.preamble}}}
+								{{{intro.preamble1}}}
 							</h3>
 						</div>
 						<p>
 							{{#intro}}
 							<ul>
-							{{#goals}}
+							{{#goals1}}
 								<li><p>{{{.}}}</p></li>
-							{{/goals}}
+							{{/goals1}}
 							</ul>
 							{{/intro}}
+						</p>
+					</div>
+					<div class="intro-outline">
+						<div id="preamble-line">
+							<h3 class="italic">
+								{{{intro.preamble2}}}
+							</h3>
+						</div>
+						<p>
+							{{#intro}}
+							<ul>
+							{{#goals2}}
+								<li><p>{{{.}}}</p></li>
+							{{/goals2}}
+							</ul>
+							{{/intro}}
+						</p>
+					</div>
+					<div>
+						<p>
+							<em>Technical keywords:</em> classification, KNN, hyperparameters, accuracy.
 						</p>
 					</div>
 				</div>

@@ -1,22 +1,38 @@
 name: "Big Fuzzy Dog"
 intro:
   lesson_num: "Lesson 1"
-  lesson_title: "How Long will a Rookie Last in the NBA?"
-  preamble: "This lesson will teach you the K-Nearest Neighbors machine laerning algorithm."
-  goals:
-    - "We'll use a dataset about rookie (1st year) NBA players' career lengths."
-    - "I'll introduce you to one kind of prediction problem that computers solve, called a <em>classification task</em>."
-    - "We'll use the K-Nearest Neighbors (KNN) algorithm to predict whether or not a rookie basketballer will have a career in the NBA that lasts at least 5 years."
-    - "You'll tune our KNN model's <span class='tooltip'>hyperparameters<span class='tooltiptext'>This is just a fancy word for a model's settings.</span></span>."
-    - "We'll measure how well our model does at predicting which players will have 5+ year long NBA careers."
+  lesson_title: "The K-Nearest Neighbors Algorithm, and Rookies in the NBA."
+  preamble1: "Pre-reqs:"
+  goals1:
+    - "An interest in machine learning."
+    - "12 minutes of focused, free time."
+  preamble2: "This lesson:"
+  goals2:
+    - "I'll introduce you to a fun dataset about rookie (1st year) NBA players."
+    - "We'll use the K-Nearest Neighbors (KNN) algorithm to predict which rookies will have NBA careers that last 5 years or more."
+    - "You will tune our KNN model's <span class='tooltip'>hyperparameters<span class='tooltiptext'>This is just a fancy word for a model's settings.</span></span>."
+    - "We'll measure how accurately the model predicts which rookies will have lasting NBA careers."
 part1:
   step1:
     heading: "The Dataset"
     texta:
-      "For this lesson, we’ll use <span class='tooltip'>this dataset<a class='tooltiptext' href='google.com'>Link to dataset</a></span> of property sales. It has one row per
-      property sold, and columns with some information about each property."
+      "The NBA records every action that happens on a basketball 
+      court. For this lesson, we’ll use <span class='tooltip'>this awesome dataset<a class='tooltiptext' href='google.com'>Link to dataset</a></span> 
+      of such records about 1st-year NBA players <em>(rookies)</em>.
+      <br><br>
+      It can be hard to know ahead of time which rookies will keep playing in 
+      the NBA for while, and which will drop out to follow some different path.
+      <br><br>
+      We're going to use this dataset to create a simple model that will let us
+      predict which rookie players will have careers that last at least 5 years. We'll
+      be able to make this prediction about a player's future after they're done playing
+      their rookie year in the NBA.
+      <br><br>
+      Our model will use just 2 datapoints about each player as inputs: (1) the number of shots
+      that player made in their rookie year, and (2) the number of rebounds they had in that year.
+      "
     textb:
-      "Take a moment to explore the dataset."
+      "Take a moment to explore the dataset. Mouse over column names for more info."
   step2:
     heading: "Classification"
     texta:
