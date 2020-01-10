@@ -1,7 +1,9 @@
 name: "Big Fuzzy Dog"
 intro:
   lesson_num: "Lesson 1"
-  lesson_title: "The K-Nearest Neighbors Algorithm, and Rookies in the NBA."
+  lesson_title: "The K-Nearest Neighbors Algorithm, and Rookies
+  <br>
+  in the NBA."
   preamble1: "Pre-reqs:"
   goals1:
     - "An interest in machine learning."

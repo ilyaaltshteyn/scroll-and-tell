@@ -11,17 +11,22 @@ svg {
   shape-rendering: crispEdges; /* Round any decimal pixels so it renders nicely */
 }
 
+li {
+  padding-bottom: .2rem;
+}
+
 div.intro {
-  width: 65%;
-  margin-left: auto;
-  margin-right: auto;
+  /* width: 65%; */
+  margin-left: 7rem;
+  margin-right: 7rem;
   margin-top: 8rem;
   padding-bottom: 3rem;
+  /* padding-left: 7rem; */
 }
 
 div.intro-heading {
-  text-align: center;
-  margin-bottom: 50px;
+  text-align: left;
+  margin-bottom: 30px;
 }
 
 #lesson-title {
@@ -59,9 +64,9 @@ div.intro-outline {
   padding-bottom: 0;
 }
 
-#centered-separate-img {
+#margined-separate-img {
   display: block;
-  margin: auto;
+  margin-left: 7rem;
   margin-bottom: 100px;
 }
 
@@ -106,7 +111,7 @@ figure.figure-for-canvas {
 
 figure.sideways-heading {
   margin-right: 2rem;
-  max-width: 2%;
+  max-width: 1rem;
   writing-mode: vertical-lr;
   text-orientation: mixed;
   transform: rotate(180deg);
@@ -129,7 +134,7 @@ figure p {
 
 .step {
   margin: 0 auto 0 auto;
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
   padding-right: 1rem;
   text-align: left;
 }
@@ -163,12 +168,17 @@ figure p {
 #intro-div-left,
 #intro-div-right {
   display: inline-block;
-  max-width: 50%;
   padding-top: 3rem;
+}
+
+#intro-div-left {
+  background-color: var(--white);
+  max-width: 46%;
 }
 
 #intro-div-right {
   background-color: var(--pink);
+  max-width: 54%;
 }
 
 #section-part1 {
@@ -191,7 +201,7 @@ figure p {
 }
 
 .section_div {
-  padding: 9rem 6rem 10rem 3rem;
+  padding: 9rem 7rem 10rem 3rem;
 }
 
 .bottom_margined {
@@ -226,7 +236,7 @@ figure p {
   position: absolute;
   left: 0;
   bottom: 0;
-  margin-left: 3rem;
+  margin-left: 7rem;
 }
 
 #header-right-side {
@@ -235,7 +245,7 @@ figure p {
   bottom: 0;
   height: 40px;  /* same height as #social-icons-container!!!! */
   width: 300px;
-  margin-right: 3rem;
+  margin-right: 7rem;
 }
 
 #social-icons-container {
