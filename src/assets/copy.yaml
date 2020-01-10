@@ -5,7 +5,7 @@ intro:
   preamble1: "Pre-reqs:"
   goals1:
     - "An interest in machine learning."
-    - "12 minutes of focused, free time."
+    - "12 minutes of focused time."
   preamble2: "This lesson:"
   goals2:
     - "I'll introduce you to a fun dataset about rookie (1st year) NBA players."
@@ -159,9 +159,9 @@ faq:
     because there will be a quiz after this."
   q1: "What if we had more than 2 classes?"
   a1: "<br>NEEDS ANSWER!<hr>"
-  q2: "How would you actually make one of these models?"
+  q2: "How would you write the code to make a KNN model?"
   a2: "<br>NEEDS ANSWER!<hr>"
-  q3: "What if we had more than 2 classes?"
+  q3: "What if we had more than 2 predictors?"
   a3: "<br>NEEDS ANSWER!<hr>"
-  q4: "How would you actually make one of these models?"
+  q4: "What if set K = size of the entire dataset?"
   a4: "<br>NEEDS ANSWER!<hr>"

@@ -16,7 +16,7 @@ div.intro {
   margin-left: auto;
   margin-right: auto;
   margin-top: 8rem;
-  padding-bottom: 4rem;
+  padding-bottom: 3rem;
 }
 
 div.intro-heading {
@@ -191,7 +191,15 @@ figure p {
 }
 
 .section_div {
-  padding: 10rem 6rem 10rem 3rem;
+  padding: 9rem 6rem 10rem 3rem;
+}
+
+.bottom_margined {
+  margin-bottom: 1.2rem;
+}
+
+.centered_text_wrapper {
+  text-align: center;
 }
 
 #section-faq .section_div {
