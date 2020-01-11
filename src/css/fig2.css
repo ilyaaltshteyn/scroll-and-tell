@@ -22,19 +22,42 @@
 
 #figure2 svg path {
   stroke-dasharray: 5;
-  stroke: var(--nearly-black);
+  stroke: var(--grey-9);
+}
+
+.dot-1,
+.dot-2 {
+  opacity: 1;
+}
+
+.dot-1 {
+  fill: var(--main-blue-3);
+}
+
+.dot-2 {
+  fill: var(--accent-3-yellow-3);
+}
+
+text#prop_privates {
+  text-transform: uppercase;
+  font-size: .8rem;
+}
+
+text#prop_homes {
+  text-transform: uppercase;
+  font-size: .8rem;
 }
 
 .blinking {
   animation:1s blinker linear infinite;
   -webkit-animation:1s blinker linear infinite;
   -moz-animation:1s blinker linear infinite;
-  fill: var(--nearly-black);
+  fill: var(--accent-4-red-4);
 }
 
 .outline_only {
   fill: none;
-  stroke: var(--charcoal);
+  stroke: var(--grey-8);
   stroke-width: 1;
 }
 
@@ -48,6 +71,40 @@
 
 .distance_measurement {
   stroke-width: 1;
-  stroke: var(--charcoal);
-  opacity: .5;
+  stroke: var(--grey-8);
+  opacity: .35;
+}
+
+.neighbor_counter_pill-1 {
+  border: 1.5px solid var(--grey-6);
+  background-color: var(--main-blue-1);
+  border-radius: 6px;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-height: 4rem;
+  /* padding-top: auto; */
+}
+
+.neighbor_counter_pill-2 {
+  border: 1.5px solid var(--grey-6);
+  background-color: var(--accent-3-yellow-1);
+  border-radius: 6px;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-height: 4rem;
+  /* padding-top: auto; */
+}
+
+#prop_homes {
+  fill: var(--main-blue-6);
+}
+
+#prop_privates {
+  fill: var(--accent-yellow-5);
+}
+
+p.text-inside-pill {
+  margin: .5rem;
 }

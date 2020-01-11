@@ -32,17 +32,33 @@ h2 {
 h3 {
   font-weight: 600;
   font-size: 24px;
-  color: var(--nearly-black);
+  color: var(--grey-9);
+}
+
+h3.logo-text{
+  color: var(--grey-8);
+}
+
+h3.inverted {
+  color: var(--grey-2);
 }
 
 h4 {
   font-weight: 300;
   font-size: 18px;
-  color: var(--pink);
+  color: var(--main-blue-3);
 }
 
 p {
-  color: var(--nearly-black);
+  color: var(--grey-9);
+}
+
+p.inverted {
+  color: var(--grey-2);
+}
+
+p.about-link {
+  color: var(--grey-5);
 }
 
 p,
@@ -60,13 +76,13 @@ span.tooltiptext {
 
 /* links */
 a {
-  color: var(--light-grey);
+  color: var(--grey-1);
 }
 a:visited {
-  color: var(--light-grey);
+  color: var(--grey-1);
 }
 a:hover, a:active, a:focus {
-  color: var(--light-grey-2);
+  color: var(--grey-3);
 }
 
 /* more specific but still general */
@@ -75,19 +91,7 @@ a:hover, a:active, a:focus {
 }
 
 text.axis-label {
-  color: var(--nearly-black);
-  text-transform: uppercase;
-  font-size: .8rem;
-}
-
-text#prop_privates {
-  fill: var(--blue);
-  text-transform: uppercase;
-  font-size: .8rem;
-}
-
-text#prop_homes {
-  fill: var(--pink);
+  color: var(--grey-9);
   text-transform: uppercase;
   font-size: .8rem;
 }
@@ -99,7 +103,7 @@ text#model_results_heading {
 
 g.tick text {
   font-size: 12px;
-  color: var(--nearly-black);
+  color: var(--grey-9);
 }
 
 /* let's get specific */
@@ -113,6 +117,7 @@ g.tick text {
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   font-size: 30px;
+  color: var(--grey-9);
 }
 
 #lesson-title {

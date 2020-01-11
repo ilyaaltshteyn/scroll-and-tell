@@ -85,6 +85,18 @@ function set_up_slider() {
   }
 }
 
+// makes header disappear on scroll (need to uncomment this and also the css):
+// var prevScrollpos = window.pageYOffset;
+// window.onscroll = function() {
+//   var currentScrollPos = window.pageYOffset;
+//   if (prevScrollpos > currentScrollPos) {
+//     document.getElementById("header").style.top = "0";
+//   } else {
+//     document.getElementById("header").style.top = "-4rem";
+//   }
+//   prevScrollpos = currentScrollPos;
+// }
+
 // kick things off
 init("#section-part1");
 init("#section-part2", set_up_slider);

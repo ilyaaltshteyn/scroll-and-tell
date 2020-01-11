@@ -41,7 +41,7 @@ function fig1__add_row_to_table() {
     data.push({ 'Shots Made': '50', 'Rebounds': '5', 'NBA Career Length': '???' });
     tabulate(data, colnames, newtable=false);
     var lastrow = d3.select("#table_row_ix_11");
-    lastrow.transition().duration(800).style('background-color', '#FFF93C');
+    lastrow.transition().duration(800).attr('class', 'attn-newrow');
 }
 
 // Function in charge of updating the table with the latest version of data
@@ -90,7 +90,7 @@ function tabulate(
 
       if (newtable == false) {  // we're adding a new row to existing table!
         // so... make it fade in
-        cells.transition().duration(1000)
+        cells.transition().duration(400)
         .style("opacity", 1);
       } else {  // we're creating the whole table from scratch, no need to fade
         cells.style("opacity", 1);
@@ -100,7 +100,7 @@ function tabulate(
       var rows = tbody.selectAll("tr")
         .data(data);
       rows.exit()
-      .transition().duration(1000)
+      // .transition().duration(100)
       .style("opacity", 0)
       .remove();
     }

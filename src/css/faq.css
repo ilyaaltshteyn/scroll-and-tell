@@ -1,9 +1,5 @@
 @import "colors.css";
 
-hr {
-  border: white;
-}
-
 /* overall section styling */
 .grid-container {
   margin-left: 1rem;
@@ -33,7 +29,7 @@ hr {
   display: flex;
   width: 100%;
 
-  background-color: var(--nearly-black);
+  background-color: var(--grey-9);
   cursor: pointer;
   padding-right: 18px;
   padding-left: 18px;
@@ -51,18 +47,18 @@ hr {
 }
 
 .collapsible p {
-  color: var(--light-grey);
+  color: var(--grey-1);
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .active, .collapsible:hover {
-  background-color: var(--charcoal);
+  background-color: var(--grey-8);
 }
 
 /* Style the collapsible content. Note: hidden by default */
 .content {
   padding: 0 12px;
-  background-color: var(--white);
+  background-color: var(--grey-0);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;

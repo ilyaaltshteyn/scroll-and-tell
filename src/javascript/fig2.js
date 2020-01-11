@@ -72,11 +72,10 @@ var fig2__create_first_scatterplot = function() {
         .attr("cx", function (d) { return x(4); } )  // origin of flying points
         .attr("cy", function (d) { return 0; } )  // origin of flying points
         .attr("r", global_radius)
-        .style('opacity', .8)
-        .style('fill', function(d) {  // color dots based on room type
+        .attr('class', function(d) {  // classes of dots based on room type
           if (d.lasted_5_years_in_nba == 'y') {
-            return '#3C56FF'
-          } else { return '#FF5851' }
+            return 'dot-1'
+          } else { return 'dot-2' }
         })
       .on("mouseover", handleMouseOver)
       .on("mouseout", handleMouseOut);
@@ -179,6 +178,9 @@ var fig2__animate_distance_measurements = function() {
         .attr("y1", function (d) { return y(mystery_datapoint[0]['defensive_rebounds']); } )
         .attr("x2", function (d) { return x(d.field_goals_made); } )
         .attr("y2", function (d) { return y(d.defensive_rebounds); } );
+      
+    fig2__add_blinking_new_mystery_point();
+      
 
   })
 }
@@ -210,15 +212,17 @@ var fig2__circle_closest_points_and_remove_measurement_lines = function(k=5) {
         .attr('id', 'model_results_heading')
         .attr('x', global_fig2_width/2 - global_fig2_margin.left*2.2)
         .attr('y', 0)
-        .text('Classes of nearest neighbors:');
-      svg.append('text')
-        .attr('id', 'prop_privates')
-        .attr('x', global_fig2_width/2 - global_fig2_margin.left - global_fig2_margin.right - 32)
-        .attr('y', 24);
-      svg.append('text')
-        .attr('id', 'prop_homes')
-        .attr('x', global_fig2_width/2 - global_fig2_margin.left - global_fig2_margin.right + 115)
-        .attr('y', 24);
+        .text('Classes of nearest neighbors');
+      // svg.append('text')
+        // .attr('id', 'prop_homes')
+        // .attr('class', 'dot-1')
+        // .attr('x', global_fig2_width/2 - global_fig2_margin.left - global_fig2_margin.right + 95)
+        // .attr('y', 24);
+      // svg.append('text')
+        // .attr('id', 'prop_privates')
+        // .attr('class', 'dot-2')
+        // .attr('x', global_fig2_width/2 - global_fig2_margin.left - global_fig2_margin.right - 42)
+        // .attr('y', 24);
       }
 
     // function to figure out how the neighbors voted
@@ -236,10 +240,10 @@ var fig2__circle_closest_points_and_remove_measurement_lines = function(k=5) {
       var total = private_rooms_count + entire_homes_count;
 
       // update text that holds predictions
-      d3.select('#prop_privates')
-        .text(`5+ years: ${private_rooms_count}/${total}`);
       d3.select('#prop_homes')
-        .text(`Under 5 years: ${entire_homes_count}/${total}`);
+        .text(`5+ years: ${private_rooms_count}`);
+      d3.select('#prop_privates')
+        .text(`<5 years: ${entire_homes_count}`);
     }
 
     // check if any points need to be removed

@@ -4,39 +4,40 @@ table {
   border-collapse: separate;
   border-spacing: 0;
   display: inline-block;
+  box-shadow: 8px 8px 7px -6px var(--grey-4);
 }
 
 table tr th,
 table tr td {
-  border-bottom: 1px solid var(--mid-grey);
+  border-bottom: 1px solid var(--grey-5);
   padding: 7px;
-  padding-right: 52px;
-  padding-left: 52px;
+  padding-right: 30px;
+  padding-left: 30px;
   text-align: center;
 }
 
 table tr th {
-  border-top:solid 1px var(--mid-grey);
-  background: var(--nearly-black);
-  color: var(--light-grey);
+  border-top:solid 1px var(--grey-5);
+  background: var(--grey-9);
+  color: var(--grey-1);
   padding-top: 11px;
   padding-bottom: 11px;
 }
 
 table tr th:first-child,
 table tr td:first-child {
-  border-left: 1px solid var(--mid-grey);
+  border-left: 1px solid var(--grey-5);
 }
 table tr th:first-child,
 table tr td:first-child {
-  border-left: 1px solid var(--mid-grey);
+  border-left: 1px solid var(--grey-5);
 }
 
 
 table.Info tr th,
 table.Info tr:first-child td
 {
-  border-top: 1px solid var(--mid-grey);
+  border-top: 1px solid var(--grey-5);
 }
 
 /* top-left border-radius */
@@ -64,10 +65,13 @@ table tr:last-child td:last-child {
 /* right-side border */
 table tr td:last-child,
 table tr th:last-child {
-  border-right: 1px solid var(--mid-grey);
+  border-right: 1px solid var(--grey-5);
 }
 
 /* new mystery datapoint */
+.attn-newrow {
+  background-color: var(--accent-3-yellow-2);
+}
 
 /* blink text color opacity only */
 @-moz-keyframes text_blinker {
@@ -97,5 +101,9 @@ table tr th:last-child {
 
 /* hover effects */
 table tr:hover {
-  background-color: var(--light-grey-1);
+  background-color: var(--grey-2);
+}
+
+table .attn-newrow:hover {
+  background-color: var(--accent-3-yellow-3);
 }
