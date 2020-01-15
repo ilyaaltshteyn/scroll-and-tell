@@ -7,7 +7,7 @@ intro:
   preamble1: "Pre-reqs:"
   goals1:
     - "An interest in machine learning."
-    - "12 minutes of focused time."
+    - "12 minutes of free time."
   preamble2: "This lesson:"
   goals2:
     - "I'll introduce you to a fun dataset about rookie (1st year) NBA players."
@@ -18,20 +18,18 @@ part1:
   step1:
     heading: "The Dataset"
     texta:
-      "The NBA records every action that happens on a basketball 
-      court. For this lesson, we’ll use <span class='tooltip'>this awesome dataset<a class='tooltiptext' href='google.com'>Link to dataset</a></span> 
-      of such records about 1st-year NBA players <em>(rookies)</em>.
+      "For this lesson, we’ll use <span class='tooltip'>this awesome dataset<a class='tooltiptext' href='google.com'>Link to dataset</a></span>
+      about 1st-year NBA players, aka <em>rookies</em>.
       <br><br>
-      It can be hard to know ahead of time which rookies will keep playing in 
-      the NBA for while, and which will drop out to follow some different path.
+      Some rookies will drop out of the NBA pretty soon after starting; others
+      will stay in the NBA for a long time. Today we're going to use this dataset
+      to make a simple model that will let us predict which rookie players will
+      stick around in the NBA for at least 5 years. Our model will be able to
+      accurately make this prediction about a player's future after they're done
+      playing their rookie year in the NBA. This is a whole lot like a weatherman
+      predicting the weather; only our predictions will be about whether or not
+      a rookie NBA'er will have a basketball career for at least 5 years.
       <br><br>
-      We're going to use this dataset to create a simple model that will let us
-      predict which rookie players will have careers that last at least 5 years. We'll
-      be able to make this prediction about a player's future after they're done playing
-      their rookie year in the NBA.
-      <br><br>
-      Our model will use just 2 datapoints about each player as inputs: (1) the number of shots
-      that player made in their rookie year, and (2) the number of rebounds they had in that year.
       "
     textb:
       "Take a moment to explore the dataset. Mouse over column names for more info."
@@ -40,51 +38,70 @@ part1:
     texta:
       "A common task in machine learning is to train a computer to accurately
       guess whether a new mystery datapoint belongs in one group (also called a
-      <em>class</em>) or another."
+      <em>class</em>) or another. This is called a <em>classification task</em>.
+      <br><br>
+      In our dataset, each row represents one rookie NBA player. The <em>class</em>
+      of each player is whether or not they lasted 5 years in the NBA.
+      "
     textb:
-      "In our dataset, each row is either a house or an apartment.
-      These 2 groups (house & apartment) will be our classes."
+      "Let's train a simple model that takes two datapoints about a player as
+      inputs: (1) the player's average number of shots made, and (2) their
+      average number of rebounds, per game, in their rookie year.
+      <br><br>
+      And we'll make our model give us one output: a guess about whether the
+      rookie player belongs in the 'Under 5 years' class (players who will
+      have a career that lasts under 5 years) or the '5+ years' class."
   step3:
-    heading: "Mystery Values"
+    heading: "Mystery Players"
     texta:
-      "This data comes from a popular real estate listings website. Sometimes, the
-      website’s users don’t fill out the 'property type' field, so there are some
-      rows that have a missing value in that column."
+      "Let's say you and I have a favorite rookie NBA player named
+      <span class='tooltip'>Taj Gibson<a class='tooltiptext' href='google.com'>
+      Yes, I know Taj was drafted a decade ago. We're pretending!</a></span>.
+      It's the end of Taj's rookie year in the NBA, and we want to know whether
+      or not he's going to stick around for 5+ amazing years.
+      <br><br>
+      We know that Taj has made an average of 3.8 shots per game, and had a solid
+      average of 4.7 rebounds per game."
     textb:
-      "How could we train a computer to predict whether a new row is a house or an
-      apartment?"
+      "How could we train a computer to predict whether or not Taj's NBA career
+      will last at least 5 years?"
   step4:
-    heading: "Classifying Mystery Values"
+    heading: "Classifying Taj Gibson"
     texta:
       "The task above is asking us to train a computer to determine the class of a
       new row. This kind of task is called a classification task. We will solve it
-      by using a classification algorithm."
+      by using a classification algorithm called K-Nearest Neighbors."
     textb:
       "But first, let’s take a step back and graph this data. We’ll create a
-      scatterplot, with a horizontal axis representing the property size, and a
-      vertical axis representing the property price."
+      scatterplot, with a horizontal axis representing the average number of shots
+      that players made per game, and a vertical axis representing their average
+      rebounds per game. Each dot will represent one player."
     textc:
-      "We will draw datapoints representing entire homes in red, and ones
-      representing private rooms in blue. If you forget, just mouse over any
-      datapoint to see its class. Let's also include a few more datapoints from
-      the same dataset, to make this more interesting."
+      "Blue dots represent players whose careers lasted 5+ years, and yellow dots
+      are the players whose careers lasted less than 5 years. If you forget any of
+      that, just mouse over any datapoint for details.
+      <br><br>
+      Let's also include a few more datapoints from the same dataset, to make this
+      more interesting."
 
 part2:
   step1:
     heading:
-      "Scatterplot!"
+      "A Scatterplot of NBA'ers"
     texta:
       "Holy dog, a scatterplot! Now that we have the data plotted, let’s
-      introduce the K-Nearest Neighbors algorithm to solve our classification task."
+      talk about how we'll use the K-Nearest Neighbors algorithm to solve
+      our classification task."
   step2:
-    heading: "Mystery Datapoint"
+    heading: "Taj Gibson, Our Mystery Player"
     texta:
-      "Let’s say we have this new datapoint— a property that sold for $XXX
-      thousand, and has 720 square feet of space."
+      "Here's Taj, blinking on our scatterplot. He's made an average of
+      3.8 shots, and 4.7 rebounds, per game. But we don't know his class--
+      will he last 5+ years in the NBA, or not?"
     textb:
       "The K-Nearest Neighbors algorithm will look at the nearest neighbors of
-      this new datapoint, and will tally up how many of them are houses, and how
-      many are apartments."
+      this new datapoint, and will tally up how many of them are '5+ Year Career'
+      players, and how many are 'Under 5 year career' players."
   step3:
     heading: "K Neighbors"
     texta: "How many neighbors will KNN look at?"
@@ -94,11 +111,11 @@ part2:
     textc:
       "How does KNN know which datapoints are the nearest neighbors?"
     textd:
-      "It calculates the 
+      "It calculates the
       <span class='tooltip'>
         distance
         <span class='tooltiptext'>
-        A common way to calculate distance is using 
+        A common way to calculate distance is using
           <a href='https://en.wikipedia.org/wiki/Euclidean_distance' target='_blank'>
             the euclidean distance formula
           </a> you might remember from high school algebra.

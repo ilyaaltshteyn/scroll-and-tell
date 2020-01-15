@@ -1,32 +1,32 @@
 // Container for array of tables
 const tableDiv = d3.select('#figure1.figure-for-canvas').append('div').attr('id', 'tableContainer');
 const colnames = [
-  {colname: "Shots Made", coldescription: "The price per night, in euros."},
-  {colname:"Rebounds", coldescription: "The minimum # of nights that a guest has to reserve."},
-  {colname: "NBA Career Length", coldescription: "Is the entire home for rent, or just a private room?"}
+  {colname: "Player Name", coldescription: "The player's name."},
+  {colname: "Shots Made", coldescription: "Average number of shots the player made, per game, in their rookie year."},
+  {colname:"Rebounds Made", coldescription: "Average number of rebounds (retrieving the ball after the other team misses a shot) per game, in their rookie year."},
+  {colname: "NBA Career Length", coldescription: "Did the player go on to have a career of at least 5 years in the NBA?"}
 ];
 
 // Initial data
 let data;
 const initialData = [
-  { 'Shots Made': '10', 'Rebounds': '4', 'NBA Career Length': '5+ years' },
-  { 'Shots Made': '32', 'Rebounds': '2', 'NBA Career Length': '5+ years' },
-  { 'Shots Made': '40', 'Rebounds': '6', 'NBA Career Length': '5+ years' },
-  { 'Shots Made': '60', 'Rebounds': '1', 'NBA Career Length': '5+ years' },
-  { 'Shots Made': '25', 'Rebounds': '9', 'NBA Career Length': '5+ years' },
-  { 'Shots Made': '27', 'Rebounds': '3', 'NBA Career Length': '5+ years' },
-  { 'Shots Made': '99', 'Rebounds': '1', 'NBA Career Length': '5+ years' },
-  { 'Shots Made': '39', 'Rebounds': '2', 'NBA Career Length': '5+ years' },
-  { 'Shots Made': '70', 'Rebounds': '1', 'NBA Career Length': '5+ years' },
-  { 'Shots Made': '45', 'Rebounds': '3', 'NBA Career Length': '5+ years' },
-  { 'Shots Made': '90', 'Rebounds': '1', 'NBA Career Length': '5+ years' }
+  { 'Player Name': 'Kevin Willis', 'Shots Made': 3.9, 'Rebounds Made': 4.2, 'NBA Career Length': '5+ years' },
+  { 'Player Name': 'Jason Kidd', 'Shots Made': 4.2, 'Rebounds Made': 3.5, 'NBA Career Length': '5+ years' },
+  { 'Player Name': 'Kevin Burleson', 'Shots Made': 0.6, 'Rebounds Made': 0.6, 'NBA Career Length': '<5 years' },
+  { 'Player Name': 'Marcus Fizer', 'Shots Made': 3.9, 'Rebounds Made': 3.3, 'NBA Career Length': '5+ years' },
+  { 'Player Name': 'Doug Smith', 'Shots Made': 3.8, 'Rebounds Made': 3.4, 'NBA Career Length': '5+ years' },
+  { 'Player Name': 'Corey Crowder', 'Shots Made': 0.8, 'Rebounds Made': 0.5, 'NBA Career Length': '<5 years' },
+  { 'Player Name': 'Rudy Gay', 'Shots Made': 4.1, 'Rebounds Made': 3.3, 'NBA Career Length': '5+ years' },
+  { 'Player Name': 'Chris Mills', 'Shots Made': 3.6, 'Rebounds Made': 3.4, 'NBA Career Length': '5+ years' },
+  { 'Player Name': 'Lawrence Roberts', 'Shots Made': 0.6, 'Rebounds Made': 0.7, 'NBA Career Length': '<5 years' },
+  { 'Player Name': 'Corey Williams', 'Shots Made': 0.9, 'Rebounds Made': 0.3, 'NBA Career Length': '<5 years' },
 ];
 
 // Tasks
 function make_original_table() {
     data = JSON.parse(JSON.stringify(initialData));
     tabulate(data, colnames);
-    var lastrow = d3.select("#table_row_ix_11");
+    var lastrow = d3.select("#table_row_ix_10");
     lastrow.transition().duration(300).style('opacity', '0');
 }
 
@@ -38,9 +38,9 @@ function revert_to_original_table() {
 function fig1__add_row_to_table() {
     // Add row to table
     data = JSON.parse(JSON.stringify(initialData));
-    data.push({ 'Shots Made': '50', 'Rebounds': '5', 'NBA Career Length': '???' });
+    data.push({ 'Player Name': 'Taj Gibson', 'Shots Made': '3.8', 'Rebounds Made': '4.7', 'NBA Career Length': '???' });
     tabulate(data, colnames, newtable=false);
-    var lastrow = d3.select("#table_row_ix_11");
+    var lastrow = d3.select("#table_row_ix_10");
     lastrow.transition().duration(800).attr('class', 'attn-newrow');
 }
 

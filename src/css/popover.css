@@ -58,9 +58,9 @@
 
 /* adjust for fig 1 table */
 #figure1 .tooltip .tooltiptext {
-  width: 120px;
-  margin-left: -70px; /* Use half of the width, to center the tooltip */
-  margin-bottom: 19px;
+  width: 190px;
+  margin-left: -95px; /* Use half of the width, to center the tooltip */
+  margin-bottom: 20px;
 }
 
 #figure1 thead .tooltip {

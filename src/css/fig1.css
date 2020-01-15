@@ -1,6 +1,8 @@
 @import "colors.css";
 
 table {
+  position: absolute;
+  right: 0;
   border-collapse: separate;
   border-spacing: 0;
   display: inline-block;
@@ -92,7 +94,7 @@ table tr th:last-child {
   100% { color: rgba(0, 0, 0, .99); }
 }
 
-#table_row_ix_11 td:last-child {
+#table_row_ix_10 td:last-child {
   animation: text_blinker .7s linear infinite;
   -webkit-animation:.7s text_blinker linear infinite;
   -moz-animation:.7s text_blinker linear infinite;
