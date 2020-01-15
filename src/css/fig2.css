@@ -49,9 +49,9 @@ text#prop_homes {
 }
 
 .blinking {
-  animation:1s blinker linear infinite;
-  -webkit-animation:1s blinker linear infinite;
-  -moz-animation:1s blinker linear infinite;
+  animation:.3s blinker linear infinite;
+  -webkit-animation:.3s blinker linear infinite;
+  -moz-animation:.3s blinker linear infinite;
   fill: var(--accent-4-red-4);
 }
 
